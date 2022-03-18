@@ -18,12 +18,19 @@
 		BF12FD5527E42CE3004DC41C /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF12FD5427E42CE3004DC41C /* SearchViewModel.swift */; };
 		BF12FD5827E4388C004DC41C /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF12FD5727E4388C004DC41C /* DetailViewController.swift */; };
 		BF12FD5A27E43894004DC41C /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF12FD5927E43894004DC41C /* DetailViewModel.swift */; };
-		BF12FD5D27E438C3004DC41C /* StoreModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF12FD5C27E438C3004DC41C /* StoreModel.swift */; };
+		BF12FD5D27E438C3004DC41C /* SearchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF12FD5C27E438C3004DC41C /* SearchModel.swift */; };
 		BF12FD5F27E438F0004DC41C /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF12FD5E27E438F0004DC41C /* SearchViewController.xib */; };
 		BF12FD6427E44CF1004DC41C /* ManagerProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF12FD6327E44CF1004DC41C /* ManagerProvider.swift */; };
 		BF12FD6627E44CF9004DC41C /* ServiceProvier.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF12FD6527E44CF9004DC41C /* ServiceProvier.swift */; };
 		BF12FD6827E44D35004DC41C /* UIViewController+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF12FD6727E44D35004DC41C /* UIViewController+Rx.swift */; };
 		BF12FD6B27E44DBF004DC41C /* NetworkRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF12FD6A27E44DBF004DC41C /* NetworkRouter.swift */; };
+		BF12FD6D27E4500F004DC41C /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF12FD6C27E4500F004DC41C /* NetworkManager.swift */; };
+		BF12FD6F27E45022004DC41C /* MemoryCacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF12FD6E27E45022004DC41C /* MemoryCacheManager.swift */; };
+		BF12FD7127E4503B004DC41C /* DiskCacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF12FD7027E4503B004DC41C /* DiskCacheManager.swift */; };
+		BF12FD7327E450F0004DC41C /* SearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF12FD7227E450F0004DC41C /* SearchService.swift */; };
+		BF12FD7527E450F8004DC41C /* ImageCacheService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF12FD7427E450F8004DC41C /* ImageCacheService.swift */; };
+		BF12FD7727E450FF004DC41C /* ImageLoadService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF12FD7627E450FF004DC41C /* ImageLoadService.swift */; };
+		BF12FD7927E4566C004DC41C /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF12FD7827E4566C004DC41C /* String+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,12 +60,19 @@
 		BF12FD5427E42CE3004DC41C /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		BF12FD5727E4388C004DC41C /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		BF12FD5927E43894004DC41C /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
-		BF12FD5C27E438C3004DC41C /* StoreModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreModel.swift; sourceTree = "<group>"; };
+		BF12FD5C27E438C3004DC41C /* SearchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchModel.swift; sourceTree = "<group>"; };
 		BF12FD5E27E438F0004DC41C /* SearchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
 		BF12FD6327E44CF1004DC41C /* ManagerProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagerProvider.swift; sourceTree = "<group>"; };
 		BF12FD6527E44CF9004DC41C /* ServiceProvier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceProvier.swift; sourceTree = "<group>"; };
 		BF12FD6727E44D35004DC41C /* UIViewController+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Rx.swift"; sourceTree = "<group>"; };
 		BF12FD6A27E44DBF004DC41C /* NetworkRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRouter.swift; sourceTree = "<group>"; };
+		BF12FD6C27E4500F004DC41C /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		BF12FD6E27E45022004DC41C /* MemoryCacheManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryCacheManager.swift; sourceTree = "<group>"; };
+		BF12FD7027E4503B004DC41C /* DiskCacheManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiskCacheManager.swift; sourceTree = "<group>"; };
+		BF12FD7227E450F0004DC41C /* SearchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchService.swift; sourceTree = "<group>"; };
+		BF12FD7427E450F8004DC41C /* ImageCacheService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCacheService.swift; sourceTree = "<group>"; };
+		BF12FD7627E450FF004DC41C /* ImageLoadService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoadService.swift; sourceTree = "<group>"; };
+		BF12FD7827E4566C004DC41C /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		D16C227FA94887917E83A278 /* Pods_StoreSearchSampleTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StoreSearchSampleTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA8FA6415DFF82C5A23C87F8 /* Pods-StoreSearchSampleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StoreSearchSampleTests.release.xcconfig"; path = "Target Support Files/Pods-StoreSearchSampleTests/Pods-StoreSearchSampleTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -185,7 +199,7 @@
 		BF12FD5B27E438B7004DC41C /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				BF12FD5C27E438C3004DC41C /* StoreModel.swift */,
+				BF12FD5C27E438C3004DC41C /* SearchModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -194,6 +208,9 @@
 			isa = PBXGroup;
 			children = (
 				BF12FD6327E44CF1004DC41C /* ManagerProvider.swift */,
+				BF12FD6C27E4500F004DC41C /* NetworkManager.swift */,
+				BF12FD6E27E45022004DC41C /* MemoryCacheManager.swift */,
+				BF12FD7027E4503B004DC41C /* DiskCacheManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -202,6 +219,9 @@
 			isa = PBXGroup;
 			children = (
 				BF12FD6527E44CF9004DC41C /* ServiceProvier.swift */,
+				BF12FD7227E450F0004DC41C /* SearchService.swift */,
+				BF12FD7427E450F8004DC41C /* ImageCacheService.swift */,
+				BF12FD7627E450FF004DC41C /* ImageLoadService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -210,6 +230,7 @@
 			isa = PBXGroup;
 			children = (
 				BF12FD6727E44D35004DC41C /* UIViewController+Rx.swift */,
+				BF12FD7827E4566C004DC41C /* String+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -419,15 +440,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF12FD6D27E4500F004DC41C /* NetworkManager.swift in Sources */,
 				BF12FD6827E44D35004DC41C /* UIViewController+Rx.swift in Sources */,
 				BF12FD6B27E44DBF004DC41C /* NetworkRouter.swift in Sources */,
+				BF12FD7727E450FF004DC41C /* ImageLoadService.swift in Sources */,
+				BF12FD6F27E45022004DC41C /* MemoryCacheManager.swift in Sources */,
 				BF12FD5527E42CE3004DC41C /* SearchViewModel.swift in Sources */,
+				BF12FD7127E4503B004DC41C /* DiskCacheManager.swift in Sources */,
 				BF12FD5A27E43894004DC41C /* DetailViewModel.swift in Sources */,
 				BF12FD2E27E427D3004DC41C /* AppDelegate.swift in Sources */,
 				BF12FD6627E44CF9004DC41C /* ServiceProvier.swift in Sources */,
+				BF12FD7927E4566C004DC41C /* String+Extension.swift in Sources */,
 				BF12FD5827E4388C004DC41C /* DetailViewController.swift in Sources */,
-				BF12FD5D27E438C3004DC41C /* StoreModel.swift in Sources */,
+				BF12FD7527E450F8004DC41C /* ImageCacheService.swift in Sources */,
+				BF12FD5D27E438C3004DC41C /* SearchModel.swift in Sources */,
 				BF12FD5327E42CDA004DC41C /* SearchViewController.swift in Sources */,
+				BF12FD7327E450F0004DC41C /* SearchService.swift in Sources */,
 				BF12FD6427E44CF1004DC41C /* ManagerProvider.swift in Sources */,
 				BF12FD3027E427D3004DC41C /* SceneDelegate.swift in Sources */,
 			);

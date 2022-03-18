@@ -1,5 +1,5 @@
 //
-//  StoreModel.swift
+//  SearchModel.swift
 //  StoreSearchSample
 //
 //  Created by Eido Goya on 2022/03/18.

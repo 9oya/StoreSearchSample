@@ -40,7 +40,7 @@ enum HTTPStatus: Int {
 enum NetworkRouter {
     
     // MARK: Base URL
-    static let baseURL = "https://itunes.apple.com/search"
+    static let baseURL = "https://itunes.apple.com"
     
     // MARK: Cases
     // GET

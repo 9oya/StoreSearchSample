@@ -5,19 +5,34 @@
 //  Created by Eido Goya on 2022/03/18.
 //
 
-import UIKit
+import Foundation
 
-protocol ServiceProvierProtocol {
-    
+protocol ServiceProviderProtocol {
+    var searchService: SearchServiceProtocol { get }
+    var imageCacheService: ImageCacheServiceProtocol { get }
+    var imageLoadService: ImageLoadServiceProtocol { get }
 }
 
-struct ServiceProvier: ServiceProvierProtocol {
-    
+struct ServiceProvider: ServiceProviderProtocol {
+    var searchService: SearchServiceProtocol
+    var imageCacheService: ImageCacheServiceProtocol
+    var imageLoadService: ImageLoadServiceProtocol
 }
 
-extension ServiceProvier {
-    static func resolve() -> ServiceProvierProtocol {
-        return ServiceProvier(
+extension ServiceProvider {
+    
+    static func resolve() -> ServiceProviderProtocol {
+        let provider = ManagerProvider.resolve()
+        let searchService = SearchService(provider: provider,
+                                          decoder: JSONDecoder())
+        let imageCacheService = ImageCacheService(provider: provider)
+        
+        return ServiceProvider(
+            searchService: searchService,
+            imageCacheService: imageCacheService,
+            imageLoadService: ImageLoadService(searchService: searchService,
+                                               imageCacheService: imageCacheService)
         )
     }
+    
 }
