@@ -11,11 +11,15 @@
 		B450053E179F65E24F8C68B5 /* Pods_StoreSearchSampleTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D16C227FA94887917E83A278 /* Pods_StoreSearchSampleTests.framework */; };
 		BF12FD2E27E427D3004DC41C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF12FD2D27E427D3004DC41C /* AppDelegate.swift */; };
 		BF12FD3027E427D3004DC41C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF12FD2F27E427D3004DC41C /* SceneDelegate.swift */; };
-		BF12FD3227E427D3004DC41C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF12FD3127E427D3004DC41C /* ViewController.swift */; };
-		BF12FD3527E427D3004DC41C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF12FD3327E427D3004DC41C /* Main.storyboard */; };
 		BF12FD3727E427D5004DC41C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF12FD3627E427D5004DC41C /* Assets.xcassets */; };
 		BF12FD3A27E427D5004DC41C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF12FD3827E427D5004DC41C /* LaunchScreen.storyboard */; };
 		BF12FD4827E42AD4004DC41C /* StoreSearchSampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF12FD4727E42AD4004DC41C /* StoreSearchSampleTests.swift */; };
+		BF12FD5327E42CDA004DC41C /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF12FD5227E42CDA004DC41C /* SearchViewController.swift */; };
+		BF12FD5527E42CE3004DC41C /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF12FD5427E42CE3004DC41C /* SearchViewModel.swift */; };
+		BF12FD5827E4388C004DC41C /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF12FD5727E4388C004DC41C /* DetailViewController.swift */; };
+		BF12FD5A27E43894004DC41C /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF12FD5927E43894004DC41C /* DetailViewModel.swift */; };
+		BF12FD5D27E438C3004DC41C /* StoreModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF12FD5C27E438C3004DC41C /* StoreModel.swift */; };
+		BF12FD5F27E438F0004DC41C /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF12FD5E27E438F0004DC41C /* SearchViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,13 +40,17 @@
 		BF12FD2A27E427D3004DC41C /* StoreSearchSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StoreSearchSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF12FD2D27E427D3004DC41C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BF12FD2F27E427D3004DC41C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		BF12FD3127E427D3004DC41C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		BF12FD3427E427D3004DC41C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BF12FD3627E427D5004DC41C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BF12FD3927E427D5004DC41C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BF12FD3B27E427D5004DC41C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BF12FD4527E42AD4004DC41C /* StoreSearchSampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StoreSearchSampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF12FD4727E42AD4004DC41C /* StoreSearchSampleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreSearchSampleTests.swift; sourceTree = "<group>"; };
+		BF12FD5227E42CDA004DC41C /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		BF12FD5427E42CE3004DC41C /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
+		BF12FD5727E4388C004DC41C /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		BF12FD5927E43894004DC41C /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
+		BF12FD5C27E438C3004DC41C /* StoreModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreModel.swift; sourceTree = "<group>"; };
+		BF12FD5E27E438F0004DC41C /* SearchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
 		D16C227FA94887917E83A278 /* Pods_StoreSearchSampleTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StoreSearchSampleTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA8FA6415DFF82C5A23C87F8 /* Pods-StoreSearchSampleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StoreSearchSampleTests.release.xcconfig"; path = "Target Support Files/Pods-StoreSearchSampleTests/Pods-StoreSearchSampleTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -99,12 +107,10 @@
 		BF12FD2C27E427D3004DC41C /* StoreSearchSample */ = {
 			isa = PBXGroup;
 			children = (
-				BF12FD2D27E427D3004DC41C /* AppDelegate.swift */,
-				BF12FD2F27E427D3004DC41C /* SceneDelegate.swift */,
-				BF12FD3127E427D3004DC41C /* ViewController.swift */,
-				BF12FD3327E427D3004DC41C /* Main.storyboard */,
-				BF12FD3627E427D5004DC41C /* Assets.xcassets */,
-				BF12FD3827E427D5004DC41C /* LaunchScreen.storyboard */,
+				BF12FD5B27E438B7004DC41C /* Models */,
+				BF12FD5027E42C15004DC41C /* Screens */,
+				BF12FD4F27E42C07004DC41C /* Resources */,
+				BF12FD4E27E42BFB004DC41C /* AppStart */,
 				BF12FD3B27E427D5004DC41C /* Info.plist */,
 			);
 			path = StoreSearchSample;
@@ -118,6 +124,60 @@
 			path = StoreSearchSampleTests;
 			sourceTree = "<group>";
 		};
+		BF12FD4E27E42BFB004DC41C /* AppStart */ = {
+			isa = PBXGroup;
+			children = (
+				BF12FD2D27E427D3004DC41C /* AppDelegate.swift */,
+				BF12FD2F27E427D3004DC41C /* SceneDelegate.swift */,
+			);
+			path = AppStart;
+			sourceTree = "<group>";
+		};
+		BF12FD4F27E42C07004DC41C /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				BF12FD3627E427D5004DC41C /* Assets.xcassets */,
+				BF12FD3827E427D5004DC41C /* LaunchScreen.storyboard */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		BF12FD5027E42C15004DC41C /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				BF12FD5627E4387F004DC41C /* Detail */,
+				BF12FD5127E42CCF004DC41C /* Search */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		BF12FD5127E42CCF004DC41C /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				BF12FD5227E42CDA004DC41C /* SearchViewController.swift */,
+				BF12FD5427E42CE3004DC41C /* SearchViewModel.swift */,
+				BF12FD5E27E438F0004DC41C /* SearchViewController.xib */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		BF12FD5627E4387F004DC41C /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				BF12FD5727E4388C004DC41C /* DetailViewController.swift */,
+				BF12FD5927E43894004DC41C /* DetailViewModel.swift */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
+		BF12FD5B27E438B7004DC41C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				BF12FD5C27E438C3004DC41C /* StoreModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		DC9CC2DBE35C7C088D925171 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -126,7 +186,6 @@
 				A90CCE93DF3F426F3A7FFEA5 /* Pods-StoreSearchSampleTests.debug.xcconfig */,
 				EA8FA6415DFF82C5A23C87F8 /* Pods-StoreSearchSampleTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -217,7 +276,7 @@
 			files = (
 				BF12FD3A27E427D5004DC41C /* LaunchScreen.storyboard in Resources */,
 				BF12FD3727E427D5004DC41C /* Assets.xcassets in Resources */,
-				BF12FD3527E427D3004DC41C /* Main.storyboard in Resources */,
+				BF12FD5F27E438F0004DC41C /* SearchViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -316,8 +375,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BF12FD3227E427D3004DC41C /* ViewController.swift in Sources */,
+				BF12FD5527E42CE3004DC41C /* SearchViewModel.swift in Sources */,
+				BF12FD5A27E43894004DC41C /* DetailViewModel.swift in Sources */,
 				BF12FD2E27E427D3004DC41C /* AppDelegate.swift in Sources */,
+				BF12FD5827E4388C004DC41C /* DetailViewController.swift in Sources */,
+				BF12FD5D27E438C3004DC41C /* StoreModel.swift in Sources */,
+				BF12FD5327E42CDA004DC41C /* SearchViewController.swift in Sources */,
 				BF12FD3027E427D3004DC41C /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -341,14 +404,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		BF12FD3327E427D3004DC41C /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				BF12FD3427E427D3004DC41C /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		BF12FD3827E427D5004DC41C /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -489,7 +544,6 @@
 				INFOPLIST_FILE = StoreSearchSample/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -518,7 +572,6 @@
 				INFOPLIST_FILE = StoreSearchSample/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (

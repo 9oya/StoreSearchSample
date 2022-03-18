@@ -144,3 +144,4 @@ iOSInjectionProject/
 **/xcshareddata/WorkspaceSettings.xcsettings
 
 # End of https://www.gitignore.io/api/git,swift,bazel,xcode,macos
+IDEWorkspaceChecks.plist
