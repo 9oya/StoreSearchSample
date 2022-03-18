@@ -9,4 +9,13 @@ import UIKit
 
 class SearchViewModel {
     
+    let title: String
+    let placeHolder: String
+    
+    init(title: String,
+         placeHolder: String) {
+        self.title = title
+        self.placeHolder = placeHolder
+    }
+    
 }

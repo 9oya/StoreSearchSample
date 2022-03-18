@@ -20,6 +20,10 @@
 		BF12FD5A27E43894004DC41C /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF12FD5927E43894004DC41C /* DetailViewModel.swift */; };
 		BF12FD5D27E438C3004DC41C /* StoreModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF12FD5C27E438C3004DC41C /* StoreModel.swift */; };
 		BF12FD5F27E438F0004DC41C /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF12FD5E27E438F0004DC41C /* SearchViewController.xib */; };
+		BF12FD6427E44CF1004DC41C /* ManagerProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF12FD6327E44CF1004DC41C /* ManagerProvider.swift */; };
+		BF12FD6627E44CF9004DC41C /* ServiceProvier.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF12FD6527E44CF9004DC41C /* ServiceProvier.swift */; };
+		BF12FD6827E44D35004DC41C /* UIViewController+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF12FD6727E44D35004DC41C /* UIViewController+Rx.swift */; };
+		BF12FD6B27E44DBF004DC41C /* NetworkRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF12FD6A27E44DBF004DC41C /* NetworkRouter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +55,10 @@
 		BF12FD5927E43894004DC41C /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 		BF12FD5C27E438C3004DC41C /* StoreModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreModel.swift; sourceTree = "<group>"; };
 		BF12FD5E27E438F0004DC41C /* SearchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
+		BF12FD6327E44CF1004DC41C /* ManagerProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagerProvider.swift; sourceTree = "<group>"; };
+		BF12FD6527E44CF9004DC41C /* ServiceProvier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceProvier.swift; sourceTree = "<group>"; };
+		BF12FD6727E44D35004DC41C /* UIViewController+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Rx.swift"; sourceTree = "<group>"; };
+		BF12FD6A27E44DBF004DC41C /* NetworkRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRouter.swift; sourceTree = "<group>"; };
 		D16C227FA94887917E83A278 /* Pods_StoreSearchSampleTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StoreSearchSampleTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA8FA6415DFF82C5A23C87F8 /* Pods-StoreSearchSampleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StoreSearchSampleTests.release.xcconfig"; path = "Target Support Files/Pods-StoreSearchSampleTests/Pods-StoreSearchSampleTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -107,6 +115,10 @@
 		BF12FD2C27E427D3004DC41C /* StoreSearchSample */ = {
 			isa = PBXGroup;
 			children = (
+				BF12FD6927E44D98004DC41C /* Utilities */,
+				BF12FD6227E44C67004DC41C /* Extensions */,
+				BF12FD6127E44C61004DC41C /* Services */,
+				BF12FD6027E44C5D004DC41C /* Managers */,
 				BF12FD5B27E438B7004DC41C /* Models */,
 				BF12FD5027E42C15004DC41C /* Screens */,
 				BF12FD4F27E42C07004DC41C /* Resources */,
@@ -176,6 +188,38 @@
 				BF12FD5C27E438C3004DC41C /* StoreModel.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		BF12FD6027E44C5D004DC41C /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				BF12FD6327E44CF1004DC41C /* ManagerProvider.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		BF12FD6127E44C61004DC41C /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				BF12FD6527E44CF9004DC41C /* ServiceProvier.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		BF12FD6227E44C67004DC41C /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				BF12FD6727E44D35004DC41C /* UIViewController+Rx.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		BF12FD6927E44D98004DC41C /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				BF12FD6A27E44DBF004DC41C /* NetworkRouter.swift */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 		DC9CC2DBE35C7C088D925171 /* Pods */ = {
@@ -375,12 +419,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF12FD6827E44D35004DC41C /* UIViewController+Rx.swift in Sources */,
+				BF12FD6B27E44DBF004DC41C /* NetworkRouter.swift in Sources */,
 				BF12FD5527E42CE3004DC41C /* SearchViewModel.swift in Sources */,
 				BF12FD5A27E43894004DC41C /* DetailViewModel.swift in Sources */,
 				BF12FD2E27E427D3004DC41C /* AppDelegate.swift in Sources */,
+				BF12FD6627E44CF9004DC41C /* ServiceProvier.swift in Sources */,
 				BF12FD5827E4388C004DC41C /* DetailViewController.swift in Sources */,
 				BF12FD5D27E438C3004DC41C /* StoreModel.swift in Sources */,
 				BF12FD5327E42CDA004DC41C /* SearchViewController.swift in Sources */,
+				BF12FD6427E44CF1004DC41C /* ManagerProvider.swift in Sources */,
 				BF12FD3027E427D3004DC41C /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
