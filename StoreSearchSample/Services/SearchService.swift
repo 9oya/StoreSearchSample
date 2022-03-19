@@ -50,17 +50,17 @@ class SearchService: SearchServiceProtocol {
         return Single.create { [weak self] single in
             self?.provider
                 .networkManager
-                .dataTask(request: req) { result in
+                .dataTask(request: req) { [weak self] result in
+                    guard let `self` = self else { return }
                     switch result {
                     case .failure(let error):
                         single(.failure(error))
                     case .success(let data):
                         do {
-                            if let model = try self?.decoder
+                            let model = try self.decoder
                                 .decode(SearchResponseModel.self,
-                                        from: data) {
-                                single(.success(.success(model)))
-                            }
+                                        from: data)
+                            single(.success(.success(model)))
                         } catch let error {
                             single(.failure(error))
                         }

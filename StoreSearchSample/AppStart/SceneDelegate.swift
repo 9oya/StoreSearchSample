@@ -24,8 +24,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 extension SceneDelegate {
     
     private func rootViewController() -> UIViewController {
-        let vm = SearchViewModel(title: "검색",
-                                 placeHolder: "게임, 앱, 스토리 등")
         let vc = SearchViewController(nibName: "SearchViewController",
                                       bundle: nil)
         let nc = UINavigationController(rootViewController: vc)
@@ -37,6 +35,11 @@ extension SceneDelegate {
             return UIImage(systemName: "magnifyingglass",
                            withConfiguration: config)
         }()
+        nc.tabBarItem.title = "검색"
+        
+        let vm = SearchViewModel(title: "검색",
+                                 placeHolder: "게임, 앱, 스토리 등",
+                                 provider: ServiceProvider.resolve())
         vc.viewModel = vm
         
         let tc = UITabBarController()

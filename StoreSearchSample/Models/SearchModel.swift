@@ -49,7 +49,7 @@ struct SearchModel: Codable {
     let artistId: Int
     let artistName: String
     let genres: [String]?
-    let price: Int
+    let price: Int?
     let primaryGenreId: Int
     let bundleId: String
     let description: String

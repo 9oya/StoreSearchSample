@@ -45,7 +45,7 @@ class ImageLoadService: ImageLoadServiceProtocol {
                     case .failure(let error):
                         single(.failure(error))
                     case .success(let image):
-                        single(.success(.success((key, image))))
+                        single(.success(.success((urlStr, image))))
                     }
                 }).disposed(by: self.disposeBag)
             return Disposables.create()
@@ -87,8 +87,9 @@ class ImageLoadService: ImageLoadServiceProtocol {
             case .failure(let error):
                 single(.failure(error))
             case let .success((urlStr, image)):
+                let key = urlStr.removeSpecialCharsFromString()
                 self.imageCacheService?
-                    .cacheImage(key: urlStr,
+                    .cacheImage(key: key,
                                 image: image)
                     .asObservable()
                     .bind(onNext: { result in

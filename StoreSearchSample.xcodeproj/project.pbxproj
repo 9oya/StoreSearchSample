@@ -31,6 +31,10 @@
 		BF12FD7527E450F8004DC41C /* ImageCacheService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF12FD7427E450F8004DC41C /* ImageCacheService.swift */; };
 		BF12FD7727E450FF004DC41C /* ImageLoadService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF12FD7627E450FF004DC41C /* ImageLoadService.swift */; };
 		BF12FD7927E4566C004DC41C /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF12FD7827E4566C004DC41C /* String+Extension.swift */; };
+		BF12FD7E27E46DEA004DC41C /* SearchTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF12FD7C27E46DEA004DC41C /* SearchTVCell.swift */; };
+		BF12FD7F27E46DEA004DC41C /* SearchTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF12FD7D27E46DEA004DC41C /* SearchTVCell.xib */; };
+		BF12FD8927E47546004DC41C /* CellConfigType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF12FD8827E47545004DC41C /* CellConfigType.swift */; };
+		BF12FD8B27E5B226004DC41C /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF12FD8A27E5B226004DC41C /* UITableView+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +77,10 @@
 		BF12FD7427E450F8004DC41C /* ImageCacheService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCacheService.swift; sourceTree = "<group>"; };
 		BF12FD7627E450FF004DC41C /* ImageLoadService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoadService.swift; sourceTree = "<group>"; };
 		BF12FD7827E4566C004DC41C /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		BF12FD7C27E46DEA004DC41C /* SearchTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTVCell.swift; sourceTree = "<group>"; };
+		BF12FD7D27E46DEA004DC41C /* SearchTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchTVCell.xib; sourceTree = "<group>"; };
+		BF12FD8827E47545004DC41C /* CellConfigType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellConfigType.swift; sourceTree = "<group>"; };
+		BF12FD8A27E5B226004DC41C /* UITableView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
 		D16C227FA94887917E83A278 /* Pods_StoreSearchSampleTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StoreSearchSampleTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA8FA6415DFF82C5A23C87F8 /* Pods-StoreSearchSampleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StoreSearchSampleTests.release.xcconfig"; path = "Target Support Files/Pods-StoreSearchSampleTests/Pods-StoreSearchSampleTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -129,6 +137,7 @@
 		BF12FD2C27E427D3004DC41C /* StoreSearchSample */ = {
 			isa = PBXGroup;
 			children = (
+				BF12FD7A27E46DBC004DC41C /* Views */,
 				BF12FD6927E44D98004DC41C /* Utilities */,
 				BF12FD6227E44C67004DC41C /* Extensions */,
 				BF12FD6127E44C61004DC41C /* Services */,
@@ -231,6 +240,7 @@
 			children = (
 				BF12FD6727E44D35004DC41C /* UIViewController+Rx.swift */,
 				BF12FD7827E4566C004DC41C /* String+Extension.swift */,
+				BF12FD8A27E5B226004DC41C /* UITableView+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -241,6 +251,24 @@
 				BF12FD6A27E44DBF004DC41C /* NetworkRouter.swift */,
 			);
 			path = Utilities;
+			sourceTree = "<group>";
+		};
+		BF12FD7A27E46DBC004DC41C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				BF12FD7B27E46DBF004DC41C /* Cells */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		BF12FD7B27E46DBF004DC41C /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				BF12FD7C27E46DEA004DC41C /* SearchTVCell.swift */,
+				BF12FD7D27E46DEA004DC41C /* SearchTVCell.xib */,
+				BF12FD8827E47545004DC41C /* CellConfigType.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		DC9CC2DBE35C7C088D925171 /* Pods */ = {
@@ -340,6 +368,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BF12FD3A27E427D5004DC41C /* LaunchScreen.storyboard in Resources */,
+				BF12FD7F27E46DEA004DC41C /* SearchTVCell.xib in Resources */,
 				BF12FD3727E427D5004DC41C /* Assets.xcassets in Resources */,
 				BF12FD5F27E438F0004DC41C /* SearchViewController.xib in Resources */,
 			);
@@ -442,14 +471,17 @@
 			files = (
 				BF12FD6D27E4500F004DC41C /* NetworkManager.swift in Sources */,
 				BF12FD6827E44D35004DC41C /* UIViewController+Rx.swift in Sources */,
+				BF12FD8B27E5B226004DC41C /* UITableView+Extension.swift in Sources */,
 				BF12FD6B27E44DBF004DC41C /* NetworkRouter.swift in Sources */,
 				BF12FD7727E450FF004DC41C /* ImageLoadService.swift in Sources */,
 				BF12FD6F27E45022004DC41C /* MemoryCacheManager.swift in Sources */,
 				BF12FD5527E42CE3004DC41C /* SearchViewModel.swift in Sources */,
 				BF12FD7127E4503B004DC41C /* DiskCacheManager.swift in Sources */,
+				BF12FD8927E47546004DC41C /* CellConfigType.swift in Sources */,
 				BF12FD5A27E43894004DC41C /* DetailViewModel.swift in Sources */,
 				BF12FD2E27E427D3004DC41C /* AppDelegate.swift in Sources */,
 				BF12FD6627E44CF9004DC41C /* ServiceProvier.swift in Sources */,
+				BF12FD7E27E46DEA004DC41C /* SearchTVCell.swift in Sources */,
 				BF12FD7927E4566C004DC41C /* String+Extension.swift in Sources */,
 				BF12FD5827E4388C004DC41C /* DetailViewController.swift in Sources */,
 				BF12FD7527E450F8004DC41C /* ImageCacheService.swift in Sources */,
