@@ -38,6 +38,17 @@
 		BF12FD8D27E6BE0A004DC41C /* SearchTbCellVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF12FD8C27E6BE0A004DC41C /* SearchTbCellVM.swift */; };
 		BF12FD9127E6C35C004DC41C /* Int+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF12FD9027E6C35C004DC41C /* Int+Extension.swift */; };
 		BF12FD9327E6CE0E004DC41C /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF12FD9227E6CE0E004DC41C /* DetailViewController.xib */; };
+		BF12FD9727E6EB20004DC41C /* DetailHeaderTbCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF12FD9527E6EB20004DC41C /* DetailHeaderTbCell.swift */; };
+		BF12FD9827E6EB20004DC41C /* DetailHeaderTbCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF12FD9627E6EB20004DC41C /* DetailHeaderTbCell.xib */; };
+		BF12FD9A27E6EDAA004DC41C /* DetailTbHeaderCellVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF12FD9927E6EDAA004DC41C /* DetailTbHeaderCellVM.swift */; };
+		BF12FD9E27E70268004DC41C /* InfoPaginationTbCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF12FD9C27E70268004DC41C /* InfoPaginationTbCell.swift */; };
+		BF12FD9F27E70268004DC41C /* InfoPaginationTbCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF12FD9D27E70268004DC41C /* InfoPaginationTbCell.xib */; };
+		BF12FDA927E706BC004DC41C /* InfoPagerViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF12FDA727E706BC004DC41C /* InfoPagerViewCell.swift */; };
+		BF12FDAA27E706BC004DC41C /* InfoPagerViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF12FDA827E706BC004DC41C /* InfoPagerViewCell.xib */; };
+		BF12FDAC27E707D9004DC41C /* InfoPaginationTbCellVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF12FDAB27E707D9004DC41C /* InfoPaginationTbCellVM.swift */; };
+		BF12FDB827E717C0004DC41C /* TextViewTypeATbCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF12FDB627E717C0004DC41C /* TextViewTypeATbCell.swift */; };
+		BF12FDB927E717C0004DC41C /* TextViewTypeATbCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF12FDB727E717C0004DC41C /* TextViewTypeATbCell.xib */; };
+		BF12FDBB27E718D4004DC41C /* TextViewTypeATbCellVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF12FDBA27E718D4004DC41C /* TextViewTypeATbCellVM.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +98,17 @@
 		BF12FD8C27E6BE0A004DC41C /* SearchTbCellVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTbCellVM.swift; sourceTree = "<group>"; };
 		BF12FD9027E6C35C004DC41C /* Int+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Extension.swift"; sourceTree = "<group>"; };
 		BF12FD9227E6CE0E004DC41C /* DetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailViewController.xib; sourceTree = "<group>"; };
+		BF12FD9527E6EB20004DC41C /* DetailHeaderTbCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailHeaderTbCell.swift; sourceTree = "<group>"; };
+		BF12FD9627E6EB20004DC41C /* DetailHeaderTbCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailHeaderTbCell.xib; sourceTree = "<group>"; };
+		BF12FD9927E6EDAA004DC41C /* DetailTbHeaderCellVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTbHeaderCellVM.swift; sourceTree = "<group>"; };
+		BF12FD9C27E70268004DC41C /* InfoPaginationTbCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoPaginationTbCell.swift; sourceTree = "<group>"; };
+		BF12FD9D27E70268004DC41C /* InfoPaginationTbCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InfoPaginationTbCell.xib; sourceTree = "<group>"; };
+		BF12FDA727E706BC004DC41C /* InfoPagerViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoPagerViewCell.swift; sourceTree = "<group>"; };
+		BF12FDA827E706BC004DC41C /* InfoPagerViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InfoPagerViewCell.xib; sourceTree = "<group>"; };
+		BF12FDAB27E707D9004DC41C /* InfoPaginationTbCellVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoPaginationTbCellVM.swift; sourceTree = "<group>"; };
+		BF12FDB627E717C0004DC41C /* TextViewTypeATbCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewTypeATbCell.swift; sourceTree = "<group>"; };
+		BF12FDB727E717C0004DC41C /* TextViewTypeATbCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TextViewTypeATbCell.xib; sourceTree = "<group>"; };
+		BF12FDBA27E718D4004DC41C /* TextViewTypeATbCellVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewTypeATbCellVM.swift; sourceTree = "<group>"; };
 		D16C227FA94887917E83A278 /* Pods_StoreSearchSampleTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StoreSearchSampleTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA8FA6415DFF82C5A23C87F8 /* Pods-StoreSearchSampleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StoreSearchSampleTests.release.xcconfig"; path = "Target Support Files/Pods-StoreSearchSampleTests/Pods-StoreSearchSampleTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -264,18 +286,22 @@
 		BF12FD7A27E46DBC004DC41C /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				BF12FD7B27E46DBF004DC41C /* Cells */,
+				BF12FDA427E703F9004DC41C /* PagerCells */,
+				BF12FD7B27E46DBF004DC41C /* TbCells */,
 			);
 			path = Views;
 			sourceTree = "<group>";
 		};
-		BF12FD7B27E46DBF004DC41C /* Cells */ = {
+		BF12FD7B27E46DBF004DC41C /* TbCells */ = {
 			isa = PBXGroup;
 			children = (
 				BF12FD8827E47545004DC41C /* CellConfigType.swift */,
+				BF12FDB127E715ED004DC41C /* TextViewTypeATbCell */,
+				BF12FD9B27E70214004DC41C /* InfoPaginationTbCell */,
+				BF12FD9427E6EAFD004DC41C /* DetailHeaderTbCell */,
 				BF12FD8F27E6BED0004DC41C /* SearchTbCell */,
 			);
-			path = Cells;
+			path = TbCells;
 			sourceTree = "<group>";
 		};
 		BF12FD8F27E6BED0004DC41C /* SearchTbCell */ = {
@@ -286,6 +312,45 @@
 				BF12FD8C27E6BE0A004DC41C /* SearchTbCellVM.swift */,
 			);
 			path = SearchTbCell;
+			sourceTree = "<group>";
+		};
+		BF12FD9427E6EAFD004DC41C /* DetailHeaderTbCell */ = {
+			isa = PBXGroup;
+			children = (
+				BF12FD9627E6EB20004DC41C /* DetailHeaderTbCell.xib */,
+				BF12FD9527E6EB20004DC41C /* DetailHeaderTbCell.swift */,
+				BF12FD9927E6EDAA004DC41C /* DetailTbHeaderCellVM.swift */,
+			);
+			path = DetailHeaderTbCell;
+			sourceTree = "<group>";
+		};
+		BF12FD9B27E70214004DC41C /* InfoPaginationTbCell */ = {
+			isa = PBXGroup;
+			children = (
+				BF12FD9D27E70268004DC41C /* InfoPaginationTbCell.xib */,
+				BF12FD9C27E70268004DC41C /* InfoPaginationTbCell.swift */,
+				BF12FDAB27E707D9004DC41C /* InfoPaginationTbCellVM.swift */,
+			);
+			path = InfoPaginationTbCell;
+			sourceTree = "<group>";
+		};
+		BF12FDA427E703F9004DC41C /* PagerCells */ = {
+			isa = PBXGroup;
+			children = (
+				BF12FDA727E706BC004DC41C /* InfoPagerViewCell.swift */,
+				BF12FDA827E706BC004DC41C /* InfoPagerViewCell.xib */,
+			);
+			path = PagerCells;
+			sourceTree = "<group>";
+		};
+		BF12FDB127E715ED004DC41C /* TextViewTypeATbCell */ = {
+			isa = PBXGroup;
+			children = (
+				BF12FDB727E717C0004DC41C /* TextViewTypeATbCell.xib */,
+				BF12FDB627E717C0004DC41C /* TextViewTypeATbCell.swift */,
+				BF12FDBA27E718D4004DC41C /* TextViewTypeATbCellVM.swift */,
+			);
+			path = TextViewTypeATbCell;
 			sourceTree = "<group>";
 		};
 		DC9CC2DBE35C7C088D925171 /* Pods */ = {
@@ -385,9 +450,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				BF12FD3A27E427D5004DC41C /* LaunchScreen.storyboard in Resources */,
+				BF12FD9F27E70268004DC41C /* InfoPaginationTbCell.xib in Resources */,
+				BF12FD9827E6EB20004DC41C /* DetailHeaderTbCell.xib in Resources */,
 				BF12FD7F27E46DEA004DC41C /* SearchTbCell.xib in Resources */,
+				BF12FDAA27E706BC004DC41C /* InfoPagerViewCell.xib in Resources */,
 				BF12FD9327E6CE0E004DC41C /* DetailViewController.xib in Resources */,
 				BF12FD3727E427D5004DC41C /* Assets.xcassets in Resources */,
+				BF12FDB927E717C0004DC41C /* TextViewTypeATbCell.xib in Resources */,
 				BF12FD5F27E438F0004DC41C /* SearchViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -489,26 +558,33 @@
 			files = (
 				BF12FD6D27E4500F004DC41C /* NetworkManager.swift in Sources */,
 				BF12FD6827E44D35004DC41C /* UIViewController+Rx.swift in Sources */,
+				BF12FD9A27E6EDAA004DC41C /* DetailTbHeaderCellVM.swift in Sources */,
 				BF12FD8B27E5B226004DC41C /* UITableView+Extension.swift in Sources */,
 				BF12FD6B27E44DBF004DC41C /* NetworkRouter.swift in Sources */,
 				BF12FD7727E450FF004DC41C /* ImageLoadService.swift in Sources */,
+				BF12FD9727E6EB20004DC41C /* DetailHeaderTbCell.swift in Sources */,
+				BF12FD9E27E70268004DC41C /* InfoPaginationTbCell.swift in Sources */,
 				BF12FD6F27E45022004DC41C /* MemoryCacheManager.swift in Sources */,
 				BF12FD5527E42CE3004DC41C /* SearchViewModel.swift in Sources */,
 				BF12FD7127E4503B004DC41C /* DiskCacheManager.swift in Sources */,
 				BF12FD8927E47546004DC41C /* CellConfigType.swift in Sources */,
 				BF12FD5A27E43894004DC41C /* DetailViewModel.swift in Sources */,
 				BF12FD2E27E427D3004DC41C /* AppDelegate.swift in Sources */,
+				BF12FDAC27E707D9004DC41C /* InfoPaginationTbCellVM.swift in Sources */,
 				BF12FD6627E44CF9004DC41C /* ServiceProvier.swift in Sources */,
 				BF12FD7E27E46DEA004DC41C /* SearchTbCell.swift in Sources */,
 				BF12FD7927E4566C004DC41C /* String+Extension.swift in Sources */,
+				BF12FDA927E706BC004DC41C /* InfoPagerViewCell.swift in Sources */,
 				BF12FD5827E4388C004DC41C /* DetailViewController.swift in Sources */,
 				BF12FD7527E450F8004DC41C /* ImageCacheService.swift in Sources */,
+				BF12FDB827E717C0004DC41C /* TextViewTypeATbCell.swift in Sources */,
 				BF12FD8D27E6BE0A004DC41C /* SearchTbCellVM.swift in Sources */,
 				BF12FD9127E6C35C004DC41C /* Int+Extension.swift in Sources */,
 				BF12FD5D27E438C3004DC41C /* SearchModel.swift in Sources */,
 				BF12FD5327E42CDA004DC41C /* SearchViewController.swift in Sources */,
 				BF12FD7327E450F0004DC41C /* SearchService.swift in Sources */,
 				BF12FD6427E44CF1004DC41C /* ManagerProvider.swift in Sources */,
+				BF12FDBB27E718D4004DC41C /* TextViewTypeATbCellVM.swift in Sources */,
 				BF12FD3027E427D3004DC41C /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

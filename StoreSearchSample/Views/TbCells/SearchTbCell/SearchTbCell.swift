@@ -11,6 +11,15 @@ import RxCocoa
 
 class SearchTbCell: UITableViewCell {
     
+    @IBOutlet weak var appIconImgView: UIImageView!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var subTitleLabel: UILabel!
+    @IBOutlet weak var ratingStackView: UIStackView!
+    @IBOutlet weak var ratingCntLabel: UILabel!
+    @IBOutlet weak var openButton: UIButton!
+    @IBOutlet weak var previewStackView: UIStackView!
+    
+    
     var viewModel: SearchTbCellVM? {
         didSet {
             if let vm = viewModel {
@@ -19,14 +28,6 @@ class SearchTbCell: UITableViewCell {
         }
     }
     var disposeBag = DisposeBag()
-
-    @IBOutlet weak var appIconImgView: UIImageView!
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var subTitleLabel: UILabel!
-    @IBOutlet weak var ratingStackView: UIStackView!
-    @IBOutlet weak var ratingCntLabel: UILabel!
-    @IBOutlet weak var openButton: UIButton!
-    @IBOutlet weak var previewStackView: UIStackView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -38,6 +39,7 @@ class SearchTbCell: UITableViewCell {
     }
     
     override func prepareForReuse() {
+        super.prepareForReuse()
         if appIconImgView != nil {
             appIconImgView.image = nil
             titleLabel.text = nil

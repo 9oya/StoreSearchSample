@@ -14,7 +14,6 @@ class SearchViewController: UIViewController {
     @IBOutlet var tv: UITableView!
     
     var disposeBag: DisposeBag = DisposeBag()
-    
     var viewModel: SearchViewModel?
     
     override func viewDidLoad() {
@@ -71,7 +70,6 @@ extension SearchViewController {
             .map { [weak self] _ -> String? in
                 self?.sc.searchBar.text
             }
-            .distinctUntilChanged()
             .do(onNext: { [weak self] _ in
                 if self?.tv.visibleCells.count ?? 0 > 0 {
                     self?.tv.scrollToRow(at: IndexPath(row: 0, section: 0),
@@ -83,6 +81,11 @@ extension SearchViewController {
             .bind { [weak self] text in
                 self?.viewModel?.searchApps.accept(text)
             }
+            .disposed(by: disposeBag)
+        
+        sc.searchBar.rx
+            .cancelButtonClicked
+            .bind(to: viewModel.cancelSearch)
             .disposed(by: disposeBag)
         
     }
@@ -101,14 +104,17 @@ extension SearchViewController {
                 })
                 .delay(.milliseconds(200), scheduler: MainScheduler.instance)
                 .bind(onNext: { [weak self] _ in
-                    guard let `self` = self else { return }
-                    let vm = DetailViewModel()
-                    let vc = DetailViewController(nibName: "DetailViewController",
-                                                  bundle: nil)
-                    vc.viewModel = vm
-                    self.navigationController?.pushViewController(vc,
-                                                                  animated: true)
-                        
+                    guard let `self` = self,
+                          let provider = self.viewModel?.provider else { return }
+                    if let model = cell.viewModel?.model {
+                        let vm = DetailViewModel(appModel: model,
+                                                 provider: provider)
+                        let vc = DetailViewController(nibName: "DetailViewController",
+                                                      bundle: nil)
+                        vc.viewModel = vm
+                        self.navigationController?.pushViewController(vc,
+                                                                      animated: true)
+                    }
                 })
                 .disposed(by: cell.disposeBag)
         }

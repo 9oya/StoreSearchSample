@@ -27,7 +27,7 @@ public enum SSPagingMode {
     case disable
 }
 
-public class SSPagerView: UIView {
+open class SSPagerView: UIView {
     public var dataSource: SSPagerViewDataSource?
     public var delegate: SSPagerViewDelegate?
     

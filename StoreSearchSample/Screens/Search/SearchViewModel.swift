@@ -19,6 +19,7 @@ class SearchViewModel {
     
     // MARK: Inputs
     var searchApps = PublishRelay<String>()
+    var cancelSearch = PublishRelay<Void>()
     
     // MARK: Outputs
     var cellConfigs = BehaviorRelay<[CellConfigType]>(value: [])
@@ -38,7 +39,11 @@ class SearchViewModel {
             })
             .disposed(by: disposeBag)
         
-        
+        cancelSearch
+            .bind { [weak self] _ in
+                self?.cellConfigs.accept([])
+            }
+            .disposed(by: disposeBag)
     }
     
 }
@@ -57,7 +62,8 @@ extension SearchViewModel {
     
     private func convertToCellConfigs(with result: Result<SearchResponseModel, Error>)
     -> Observable<[CellConfigType]> {
-        return Observable.create { observer in
+        return Observable.create { [weak self] observer in
+            guard let `self` = self else { return Disposables.create() }
             switch result {
             case .failure(let error):
                 print(error.localizedDescription)
