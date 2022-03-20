@@ -39,14 +39,11 @@ enum HTTPStatus: Int {
 
 enum NetworkRouter {
     
-    // MARK: Base URL
     static let baseURL = "https://itunes.apple.com"
     
-    // MARK: Cases
     // GET
     case search(term: String, entity: String, country: String, limit: String)
     
-    // MARK: HTTPMethod
     private var method: String {
         switch self {
         case .search:
@@ -54,7 +51,6 @@ enum NetworkRouter {
         }
     }
     
-    // MARK: Path
     private var path: String {
         switch self {
         case .search:
@@ -62,7 +58,7 @@ enum NetworkRouter {
         }
     }
     
-    // MARK: Parameters
+    /// Parameters
     private var parameters: [String: Any]? {
         switch self {
         case .search:
@@ -70,7 +66,7 @@ enum NetworkRouter {
         }
     }
     
-    // MARK: QueryStrings
+    /// QueryStrings
     private var queryItems: [URLQueryItem]? {
         var queryItems = [URLQueryItem]()
         
@@ -90,7 +86,7 @@ enum NetworkRouter {
         return queryItems
     }
     
-    // MARK: HTTPHeader
+    /// HTTPHeader
     private func getAdditionalHttpHeaders() -> [(String, String)] {
         var headers = [(String, String)]()
         switch self {

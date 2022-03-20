@@ -41,7 +41,7 @@ extension SearchViewController {
         navigationItem.searchController = sc
         
         tv.registerCells([
-            SearchTVCell.self
+            SearchTbCell.self
         ])
         tv.rx.setDelegate(self).disposed(by: self.disposeBag)
     }
@@ -57,34 +57,61 @@ extension SearchViewController {
                                          for: IndexPath(row: idx,
                                                         section: 0))
                 self?.bindCells(cell)
-                return item.cellConfigurator(cell: cell,
-                                             indexPath: IndexPath(row: idx,
-                                                                  section: 0))
+                return item.configure(cell: cell,
+                                      with: IndexPath(row: idx,
+                                                      section: 0))
             }
             .disposed(by: disposeBag)
         
         // MARK: Outputs
-        sc.searchBar.rx.textDidEndEditing
-            .bind { _ in
-                if let term = self.sc.searchBar.text {
-                    self.viewModel?.searchApps.accept(term)
+        sc.searchBar.rx
+            .textDidEndEditing
+            .throttle(.seconds(1),
+                      scheduler: MainScheduler.instance)
+            .map { [weak self] _ -> String? in
+                self?.sc.searchBar.text
+            }
+            .distinctUntilChanged()
+            .do(onNext: { [weak self] _ in
+                if self?.tv.visibleCells.count ?? 0 > 0 {
+                    self?.tv.scrollToRow(at: IndexPath(row: 0, section: 0),
+                                         at: .top,
+                                         animated: false)
                 }
+            })
+            .compactMap { $0 }
+            .bind { [weak self] text in
+                self?.viewModel?.searchApps.accept(text)
             }
             .disposed(by: disposeBag)
-//        sc.searchBar.rx.text
-//            .orEmpty
-//            .throttle(.seconds(1),
-//                      scheduler: MainScheduler.instance)
-//            .distinctUntilChanged()
-//            .subscribe(onNext: { term in
-//                self.viewModel?.searchApps.accept(term)
-//            })
-//            .disposed(by: disposeBag)
         
     }
     
     private func bindCells(_ cell: UITableViewCell) {
-        
+        if let cell = cell as? SearchTbCell {
+            cell.openButton.rx
+                .tap
+                .do(onNext: { _ in
+                    UIView.animate(withDuration: 0.2) {
+                        cell.openButton.backgroundColor = .black.withAlphaComponent(0.2)
+                    }
+                    UIView.animate(withDuration: 0.2, delay: 0.2, options: .curveEaseOut) {
+                        cell.openButton.backgroundColor = .systemGray6
+                    }
+                })
+                .delay(.milliseconds(200), scheduler: MainScheduler.instance)
+                .bind(onNext: { [weak self] _ in
+                    guard let `self` = self else { return }
+                    let vm = DetailViewModel()
+                    let vc = DetailViewController(nibName: "DetailViewController",
+                                                  bundle: nil)
+                    vc.viewModel = vm
+                    self.navigationController?.pushViewController(vc,
+                                                                  animated: true)
+                        
+                })
+                .disposed(by: cell.disposeBag)
+        }
     }
     
 }

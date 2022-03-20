@@ -52,7 +52,7 @@ extension SearchViewModel {
             .search(term: term,
                     entity: "software",
                     country: "kr",
-                    limit: "2")
+                    limit: "50")
     }
     
     private func convertToCellConfigs(with result: Result<SearchResponseModel, Error>)
@@ -66,7 +66,7 @@ extension SearchViewModel {
                 rsp.results?
                     .forEach { model in
                         configs.append(
-                            SearchTVCellVM(
+                            SearchTbCellVM(
                                 provider: self.provider,
                                 cellHeight: 300,
                                 model: model

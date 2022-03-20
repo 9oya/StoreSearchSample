@@ -10,7 +10,7 @@ import UIKit
 protocol CellConfigType {
     var cellIdentifier: String { get }
     var cellHeight: CGFloat { get }
-    func cellConfigurator(cell: UITableViewCell,
-                          indexPath: IndexPath)
+    func configure(cell: UITableViewCell,
+                   with indexPath: IndexPath)
     -> UITableViewCell
 }
