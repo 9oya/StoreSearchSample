@@ -69,6 +69,21 @@ extension DetailViewController {
     }
     
     private func bindCells(_ cell: UITableViewCell) {
+        
+        guard let viewModel = viewModel else { return }
+        
+        if let cell = cell as? TextViewTypeATbCell {
+            cell.moreButton.rx
+                .tap
+                .do(onNext: { _ in
+                    let sizeThatFitsTextView = cell.contentsTxtView
+                        .sizeThatFits(CGSize(width: cell.contentsTxtView.frame.size.width, height: CGFloat(MAXFLOAT)))
+                    viewModel.txtvContentsHeightA = sizeThatFitsTextView.height
+                })
+                .bind(to: viewModel.moreButtonA)
+                .disposed(by: cell.disposeBag)
+        }
+        
     }
     
 }

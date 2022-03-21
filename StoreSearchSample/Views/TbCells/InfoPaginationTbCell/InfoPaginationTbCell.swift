@@ -34,6 +34,9 @@ class InfoPaginationTbCell: UITableViewCell {
     
     override func prepareForReuse() {
         super.prepareForReuse()
+        configureViews()
+        viewModel = nil
+        disposeBag = DisposeBag()
     }
     
 }
@@ -78,6 +81,14 @@ extension InfoPaginationTbCell {
     }
     
     private func bind(with viewModel: InfoPaginationTbCellVM) {
+        
+        // MARK: Inputs
+        
+        // MARK: Outputs
+        Observable.just(true)
+            .asObservable()
+            .bind(to: viewModel.onAppear)
+            .disposed(by: disposeBag)
         
         let test = ["A", "A", "A", "A"]
         

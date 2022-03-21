@@ -36,6 +36,11 @@ class DetailHeaderTbCell: UITableViewCell {
     
     override func prepareForReuse() {
         super.prepareForReuse()
+        iconImgView.image = nil
+        titleLabel.text = nil
+        subTitleLabel.text = nil
+        viewModel = nil
+        disposeBag = DisposeBag()
     }
     
 }

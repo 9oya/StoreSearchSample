@@ -12,6 +12,7 @@ import RxCocoa
 class TextViewTypeATbCellVM: CellConfigType {
     
     var disposeBag: DisposeBag = DisposeBag()
+    var actualHeight: CGFloat?
     
     // MARK: Inputs
     var onAppear = PublishRelay<Bool>()
@@ -50,6 +51,7 @@ extension TextViewTypeATbCellVM {
     
     private func bind(_ model: SearchModel) {
         appModel.accept(model)
+        
         
     }
     

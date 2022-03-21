@@ -36,6 +36,8 @@ class TextViewTypeATbCell: UITableViewCell {
     
     override func prepareForReuse() {
         super.prepareForReuse()
+        viewModel = nil
+        disposeBag = DisposeBag()
     }
     
 }
@@ -43,9 +45,29 @@ class TextViewTypeATbCell: UITableViewCell {
 extension TextViewTypeATbCell {
     
     private func configureViews() {
+        selectionStyle = .none
     }
     
     private func bind(with viewModel: TextViewTypeATbCellVM) {
+        
+        // MARK: Inputs
+        viewModel
+            .appModel
+            .map { $0.trackName}
+            .bind(to: titleLabel.rx.text)
+            .disposed(by: disposeBag)
+        
+        viewModel
+            .appModel
+            .map { $0.releaseNotes }
+            .bind(to: contentsTxtView.rx.text)
+            .disposed(by: disposeBag)
+        
+        // MARK: Outputs
+        Observable.just(true)
+            .asObservable()
+            .bind(to: viewModel.onAppear)
+            .disposed(by: disposeBag)
     }
     
 }

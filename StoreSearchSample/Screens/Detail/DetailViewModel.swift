@@ -14,8 +14,12 @@ class DetailViewModel {
     var provider: ServiceProviderProtocol
     var disposeBag: DisposeBag = DisposeBag()
     
+    var txtvContentsHeightA: CGFloat = 220
+    var txtvContentsHeightB: CGFloat = 220
+    
     // MARK: Inputs
     var onAppear = PublishRelay<Bool>()
+    var moreButtonA = PublishRelay<Void>()
     
     // MARK: Outputs
     var cellConfigs = BehaviorRelay<[CellConfigType]>(value: [])
@@ -28,20 +32,33 @@ class DetailViewModel {
             .flatMap { _ -> Observable<SearchModel> in
                 return .just(appModel)
             }
-            .flatMap(convertToCellConfigs)
-            .subscribe { [weak self] configs in
+            .flatMap { [weak self] model -> Observable<[CellConfigType]> in
+                return self?.convertToCellConfigs(with: model) ?? .never()
+            }
+            .bind { [weak self] configs in
                 self?.cellConfigs.accept(configs)
             }
             .disposed(by: disposeBag)
 
-        
+        moreButtonA
+            .flatMap { _ -> Observable<SearchModel> in
+                return .just(appModel)
+            }
+            .flatMap { [weak self] model -> Observable<[CellConfigType]> in
+                return self?.convertToCellConfigs(with: model, true) ?? .never()
+            }
+            .bind { [weak self] configs in
+                self?.cellConfigs.accept(configs)
+            }
+            .disposed(by: disposeBag)
     }
     
 }
 
 extension DetailViewModel {
     
-    private func convertToCellConfigs(with model: SearchModel)
+    private func convertToCellConfigs(with model: SearchModel,
+                                      _ isMoreA: Bool = false)
     -> Observable<[CellConfigType]> {
         return Observable.create { [weak self] observer in
             guard let `self` = self else { return Disposables.create() }
@@ -60,7 +77,10 @@ extension DetailViewModel {
                 model: model)
             )
             
-            
+            configs.append(TextViewTypeATbCellVM(
+                cellHeight: self.txtvContentsHeightA,
+                model: model)
+            )
             
             observer.onNext(configs)
             return Disposables.create()
