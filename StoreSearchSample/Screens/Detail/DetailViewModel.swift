@@ -14,12 +14,12 @@ class DetailViewModel {
     var provider: ServiceProviderProtocol
     var disposeBag: DisposeBag = DisposeBag()
     
-    var txtvContentsHeightA: CGFloat = 220
-    var txtvContentsHeightB: CGFloat = 220
+    var txtvContentsHeightA: CGFloat = 170
+    var txtvContentsHeightB: CGFloat = 120
     
     // MARK: Inputs
     var onAppear = PublishRelay<Bool>()
-    var moreButtonA = PublishRelay<Void>()
+    var moreButton = PublishRelay<Void>()
     
     // MARK: Outputs
     var cellConfigs = BehaviorRelay<[CellConfigType]>(value: [])
@@ -32,21 +32,17 @@ class DetailViewModel {
             .flatMap { _ -> Observable<SearchModel> in
                 return .just(appModel)
             }
-            .flatMap { [weak self] model -> Observable<[CellConfigType]> in
-                return self?.convertToCellConfigs(with: model) ?? .never()
-            }
+            .flatMap(convertToCellConfigs)
             .bind { [weak self] configs in
                 self?.cellConfigs.accept(configs)
             }
             .disposed(by: disposeBag)
 
-        moreButtonA
+        moreButton
             .flatMap { _ -> Observable<SearchModel> in
                 return .just(appModel)
             }
-            .flatMap { [weak self] model -> Observable<[CellConfigType]> in
-                return self?.convertToCellConfigs(with: model, true) ?? .never()
-            }
+            .flatMap(convertToCellConfigs)
             .bind { [weak self] configs in
                 self?.cellConfigs.accept(configs)
             }
@@ -57,8 +53,7 @@ class DetailViewModel {
 
 extension DetailViewModel {
     
-    private func convertToCellConfigs(with model: SearchModel,
-                                      _ isMoreA: Bool = false)
+    private func convertToCellConfigs(with model: SearchModel)
     -> Observable<[CellConfigType]> {
         return Observable.create { [weak self] observer in
             guard let `self` = self else { return Disposables.create() }
@@ -79,6 +74,17 @@ extension DetailViewModel {
             
             configs.append(TextViewTypeATbCellVM(
                 cellHeight: self.txtvContentsHeightA,
+                model: model)
+            )
+            
+            configs.append(PreviewTbCellVM(
+                provider: self.provider,
+                cellHeight: 27+(696*0.5)+15, // header+body+footer
+                model: model)
+            )
+            
+            configs.append(TextViewTypeBTbCellVM(
+                cellHeight: self.txtvContentsHeightB,
                 model: model)
             )
             

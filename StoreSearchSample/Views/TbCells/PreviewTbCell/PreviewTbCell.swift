@@ -1,8 +1,8 @@
 //
-//  InfoPaginationTbCell.swift
+//  PreviewTbCell.swift
 //  StoreSearchSample
 //
-//  Created by Eido Goya on 2022/03/20.
+//  Created by Eido Goya on 2022/03/21.
 //
 
 import UIKit
@@ -10,11 +10,12 @@ import RxSwift
 import RxCocoa
 import SSPager
 
-class InfoPaginationTbCell: UITableViewCell {
+class PreviewTbCell: UITableViewCell {
     
+    @IBOutlet weak var titleLabel: UILabel!
     var pagerView: SSPagerView!
     
-    var viewModel: InfoPaginationTbCellVM? {
+    var viewModel: PreviewTbCellVM? {
         didSet {
             if let vm = viewModel {
                 bind(with: vm)
@@ -22,7 +23,7 @@ class InfoPaginationTbCell: UITableViewCell {
         }
     }
     var disposeBag = DisposeBag()
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
         configureViews()
@@ -41,26 +42,26 @@ class InfoPaginationTbCell: UITableViewCell {
     
 }
 
-extension InfoPaginationTbCell {
+extension PreviewTbCell {
     
     private func configureViews() {
         selectionStyle = .none
         
         pagerView = {
             let pagerView = SSPagerView()
-            pagerView.interitemSpacing = 0
+            pagerView.interitemSpacing = 5
             pagerView.backgroundColor = .systemYellow
             
-            pagerView.itemSize = CGSize(width: 110,
-                                        height: 100)
+            pagerView.itemSize = CGSize(width: 392*0.5,
+                                        height: 696*0.5)
             pagerView.contentsInset = UIEdgeInsets(top: 0,
                                                    left: 15,
                                                    bottom: 0,
                                                    right: 15)
             
-            pagerView.pagingMode = .disable
+            pagerView.pagingMode = .scrollable
             
-            let id = String.className(InfoPagerViewCell.self)
+            let id = String.className(PreviewPagerCell.self)
             pagerView.register(UINib(nibName: id,
                                      bundle: nil),
                                forCellWithReuseIdentifier: id)
@@ -72,15 +73,15 @@ extension InfoPaginationTbCell {
         contentView.addSubview(pagerView)
         
         NSLayoutConstraint.activate([
-            pagerView.topAnchor.constraint(equalTo: contentView.topAnchor),
+            pagerView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor),
             pagerView.leftAnchor.constraint(equalTo: contentView.leftAnchor),
             pagerView.rightAnchor.constraint(equalTo: contentView.rightAnchor),
-            pagerView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
+            pagerView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -15)
         ])
         
     }
     
-    private func bind(with viewModel: InfoPaginationTbCellVM) {
+    private func bind(with viewModel: PreviewTbCellVM) {
         
         // MARK: Inputs
         
@@ -93,9 +94,10 @@ extension InfoPaginationTbCell {
         let test = ["A", "A", "A", "A"]
         
         Observable.just(test)
-            .bind(to: pagerView.rx.pages(cellIdentifier: String(describing: InfoPagerViewCell.self))) { idx, item, cell in
-                if let cell = cell as? InfoPagerViewCell {
-                    cell.titleLabel.text = item
+            .bind(to: pagerView.rx.pages(cellIdentifier: String(describing: PreviewPagerCell.self))) { idx, item, cell in
+                if let cell = cell as? PreviewPagerCell {
+//                    cell.titleLabel.text = item
+                    cell.imgView.backgroundColor = .green
                 }
             }
             .disposed(by: disposeBag)

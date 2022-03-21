@@ -1,15 +1,15 @@
 //
-//  TextViewTypeATbCellVM.swift
+//  TextViewTypeBTbCellVM.swift
 //  StoreSearchSample
 //
-//  Created by Eido Goya on 2022/03/20.
+//  Created by Eido Goya on 2022/03/21.
 //
 
 import UIKit
 import RxSwift
 import RxCocoa
 
-class TextViewTypeATbCellVM: CellConfigType {
+class TextViewTypeBTbCellVM: CellConfigType {
     
     var disposeBag: DisposeBag = DisposeBag()
     
@@ -32,13 +32,13 @@ class TextViewTypeATbCellVM: CellConfigType {
     
     // MARK: CellConfigType
     
-    var cellIdentifier: String = String(describing: TextViewTypeATbCell.self)
+    var cellIdentifier: String = String(describing: TextViewTypeBTbCell.self)
     var cellHeight: CGFloat
     
     func configure(cell: UITableViewCell,
                    with indexPath: IndexPath)
     -> UITableViewCell {
-        if let cell = cell as? TextViewTypeATbCell {
+        if let cell = cell as? TextViewTypeBTbCell {
             cell.viewModel = self
             return cell
         }
@@ -46,7 +46,7 @@ class TextViewTypeATbCellVM: CellConfigType {
     }
 }
 
-extension TextViewTypeATbCellVM {
+extension TextViewTypeBTbCellVM {
     
     private func bind(_ model: SearchModel) {
         appModel.accept(model)

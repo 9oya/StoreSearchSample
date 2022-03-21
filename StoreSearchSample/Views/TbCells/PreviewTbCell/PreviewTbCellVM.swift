@@ -1,17 +1,18 @@
 //
-//  TextViewTypeATbCellVM.swift
+//  PreviewTbCellVM.swift
 //  StoreSearchSample
 //
-//  Created by Eido Goya on 2022/03/20.
+//  Created by Eido Goya on 2022/03/21.
 //
 
 import UIKit
 import RxSwift
 import RxCocoa
 
-class TextViewTypeATbCellVM: CellConfigType {
+class PreviewTbCellVM: CellConfigType {
     
     var disposeBag: DisposeBag = DisposeBag()
+    var provider: ServiceProviderProtocol
     
     // MARK: Inputs
     var onAppear = PublishRelay<Bool>()
@@ -19,8 +20,10 @@ class TextViewTypeATbCellVM: CellConfigType {
     // MARK: Outputs
     var appModel = PublishRelay<SearchModel>()
     
-    init(cellHeight: CGFloat,
+    init(provider: ServiceProviderProtocol,
+         cellHeight: CGFloat,
          model: SearchModel) {
+        self.provider = provider
         self.cellHeight = cellHeight
         
         onAppear
@@ -32,25 +35,25 @@ class TextViewTypeATbCellVM: CellConfigType {
     
     // MARK: CellConfigType
     
-    var cellIdentifier: String = String(describing: TextViewTypeATbCell.self)
+    var cellIdentifier: String = String(describing: PreviewTbCell.self)
     var cellHeight: CGFloat
     
     func configure(cell: UITableViewCell,
                    with indexPath: IndexPath)
     -> UITableViewCell {
-        if let cell = cell as? TextViewTypeATbCell {
+        if let cell = cell as? PreviewTbCell {
             cell.viewModel = self
             return cell
         }
         return UITableViewCell()
     }
+    
 }
 
-extension TextViewTypeATbCellVM {
+extension PreviewTbCellVM {
     
     private func bind(_ model: SearchModel) {
         appModel.accept(model)
-        
         
     }
     

@@ -49,6 +49,14 @@
 		BF12FDB827E717C0004DC41C /* TextViewTypeATbCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF12FDB627E717C0004DC41C /* TextViewTypeATbCell.swift */; };
 		BF12FDB927E717C0004DC41C /* TextViewTypeATbCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF12FDB727E717C0004DC41C /* TextViewTypeATbCell.xib */; };
 		BF12FDBB27E718D4004DC41C /* TextViewTypeATbCellVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF12FDBA27E718D4004DC41C /* TextViewTypeATbCellVM.swift */; };
+		BFAC103527E8325500FB5A9A /* PreviewTbCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFAC103327E8325500FB5A9A /* PreviewTbCell.swift */; };
+		BFAC103627E8325500FB5A9A /* PreviewTbCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFAC103427E8325500FB5A9A /* PreviewTbCell.xib */; };
+		BFAC103827E8326500FB5A9A /* PreviewTbCellVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFAC103727E8326500FB5A9A /* PreviewTbCellVM.swift */; };
+		BFAC103D27E833E300FB5A9A /* PreviewPagerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFAC103B27E833E300FB5A9A /* PreviewPagerCell.swift */; };
+		BFAC103E27E833E300FB5A9A /* PreviewPagerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFAC103C27E833E300FB5A9A /* PreviewPagerCell.xib */; };
+		BFAC104227E8387000FB5A9A /* TextViewTypeBTbCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFAC104027E8387000FB5A9A /* TextViewTypeBTbCell.swift */; };
+		BFAC104327E8387000FB5A9A /* TextViewTypeBTbCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFAC104127E8387000FB5A9A /* TextViewTypeBTbCell.xib */; };
+		BFAC104527E8388000FB5A9A /* TextViewTypeBTbCellVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFAC104427E8388000FB5A9A /* TextViewTypeBTbCellVM.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -109,6 +117,14 @@
 		BF12FDB627E717C0004DC41C /* TextViewTypeATbCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewTypeATbCell.swift; sourceTree = "<group>"; };
 		BF12FDB727E717C0004DC41C /* TextViewTypeATbCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TextViewTypeATbCell.xib; sourceTree = "<group>"; };
 		BF12FDBA27E718D4004DC41C /* TextViewTypeATbCellVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewTypeATbCellVM.swift; sourceTree = "<group>"; };
+		BFAC103327E8325500FB5A9A /* PreviewTbCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewTbCell.swift; sourceTree = "<group>"; };
+		BFAC103427E8325500FB5A9A /* PreviewTbCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PreviewTbCell.xib; sourceTree = "<group>"; };
+		BFAC103727E8326500FB5A9A /* PreviewTbCellVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewTbCellVM.swift; sourceTree = "<group>"; };
+		BFAC103B27E833E300FB5A9A /* PreviewPagerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewPagerCell.swift; sourceTree = "<group>"; };
+		BFAC103C27E833E300FB5A9A /* PreviewPagerCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PreviewPagerCell.xib; sourceTree = "<group>"; };
+		BFAC104027E8387000FB5A9A /* TextViewTypeBTbCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewTypeBTbCell.swift; sourceTree = "<group>"; };
+		BFAC104127E8387000FB5A9A /* TextViewTypeBTbCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TextViewTypeBTbCell.xib; sourceTree = "<group>"; };
+		BFAC104427E8388000FB5A9A /* TextViewTypeBTbCellVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewTypeBTbCellVM.swift; sourceTree = "<group>"; };
 		D16C227FA94887917E83A278 /* Pods_StoreSearchSampleTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StoreSearchSampleTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA8FA6415DFF82C5A23C87F8 /* Pods-StoreSearchSampleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StoreSearchSampleTests.release.xcconfig"; path = "Target Support Files/Pods-StoreSearchSampleTests/Pods-StoreSearchSampleTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -165,11 +181,11 @@
 		BF12FD2C27E427D3004DC41C /* StoreSearchSample */ = {
 			isa = PBXGroup;
 			children = (
-				BF12FD7A27E46DBC004DC41C /* Views */,
 				BF12FD6927E44D98004DC41C /* Utilities */,
 				BF12FD6227E44C67004DC41C /* Extensions */,
 				BF12FD6127E44C61004DC41C /* Services */,
 				BF12FD6027E44C5D004DC41C /* Managers */,
+				BF12FD7A27E46DBC004DC41C /* Views */,
 				BF12FD5B27E438B7004DC41C /* Models */,
 				BF12FD5027E42C15004DC41C /* Screens */,
 				BF12FD4F27E42C07004DC41C /* Resources */,
@@ -296,6 +312,8 @@
 			isa = PBXGroup;
 			children = (
 				BF12FD8827E47545004DC41C /* CellConfigType.swift */,
+				BFAC103227E8322400FB5A9A /* PreviewTbCell */,
+				BFAC103F27E8384000FB5A9A /* TextViewTypeBTbCell */,
 				BF12FDB127E715ED004DC41C /* TextViewTypeATbCell */,
 				BF12FD9B27E70214004DC41C /* InfoPaginationTbCell */,
 				BF12FD9427E6EAFD004DC41C /* DetailHeaderTbCell */,
@@ -337,8 +355,8 @@
 		BF12FDA427E703F9004DC41C /* PagerCells */ = {
 			isa = PBXGroup;
 			children = (
-				BF12FDA727E706BC004DC41C /* InfoPagerViewCell.swift */,
-				BF12FDA827E706BC004DC41C /* InfoPagerViewCell.xib */,
+				BFAC103A27E833B800FB5A9A /* PreviewPagerCell */,
+				BFAC103927E833B100FB5A9A /* InfoPagerCell */,
 			);
 			path = PagerCells;
 			sourceTree = "<group>";
@@ -351,6 +369,44 @@
 				BF12FDBA27E718D4004DC41C /* TextViewTypeATbCellVM.swift */,
 			);
 			path = TextViewTypeATbCell;
+			sourceTree = "<group>";
+		};
+		BFAC103227E8322400FB5A9A /* PreviewTbCell */ = {
+			isa = PBXGroup;
+			children = (
+				BFAC103427E8325500FB5A9A /* PreviewTbCell.xib */,
+				BFAC103327E8325500FB5A9A /* PreviewTbCell.swift */,
+				BFAC103727E8326500FB5A9A /* PreviewTbCellVM.swift */,
+			);
+			path = PreviewTbCell;
+			sourceTree = "<group>";
+		};
+		BFAC103927E833B100FB5A9A /* InfoPagerCell */ = {
+			isa = PBXGroup;
+			children = (
+				BF12FDA727E706BC004DC41C /* InfoPagerViewCell.swift */,
+				BF12FDA827E706BC004DC41C /* InfoPagerViewCell.xib */,
+			);
+			path = InfoPagerCell;
+			sourceTree = "<group>";
+		};
+		BFAC103A27E833B800FB5A9A /* PreviewPagerCell */ = {
+			isa = PBXGroup;
+			children = (
+				BFAC103B27E833E300FB5A9A /* PreviewPagerCell.swift */,
+				BFAC103C27E833E300FB5A9A /* PreviewPagerCell.xib */,
+			);
+			path = PreviewPagerCell;
+			sourceTree = "<group>";
+		};
+		BFAC103F27E8384000FB5A9A /* TextViewTypeBTbCell */ = {
+			isa = PBXGroup;
+			children = (
+				BFAC104127E8387000FB5A9A /* TextViewTypeBTbCell.xib */,
+				BFAC104027E8387000FB5A9A /* TextViewTypeBTbCell.swift */,
+				BFAC104427E8388000FB5A9A /* TextViewTypeBTbCellVM.swift */,
+			);
+			path = TextViewTypeBTbCell;
 			sourceTree = "<group>";
 		};
 		DC9CC2DBE35C7C088D925171 /* Pods */ = {
@@ -451,12 +507,15 @@
 			files = (
 				BF12FD3A27E427D5004DC41C /* LaunchScreen.storyboard in Resources */,
 				BF12FD9F27E70268004DC41C /* InfoPaginationTbCell.xib in Resources */,
+				BFAC103627E8325500FB5A9A /* PreviewTbCell.xib in Resources */,
+				BFAC103E27E833E300FB5A9A /* PreviewPagerCell.xib in Resources */,
 				BF12FD9827E6EB20004DC41C /* DetailHeaderTbCell.xib in Resources */,
 				BF12FD7F27E46DEA004DC41C /* SearchTbCell.xib in Resources */,
 				BF12FDAA27E706BC004DC41C /* InfoPagerViewCell.xib in Resources */,
 				BF12FD9327E6CE0E004DC41C /* DetailViewController.xib in Resources */,
 				BF12FD3727E427D5004DC41C /* Assets.xcassets in Resources */,
 				BF12FDB927E717C0004DC41C /* TextViewTypeATbCell.xib in Resources */,
+				BFAC104327E8387000FB5A9A /* TextViewTypeBTbCell.xib in Resources */,
 				BF12FD5F27E438F0004DC41C /* SearchViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -567,12 +626,17 @@
 				BF12FD6F27E45022004DC41C /* MemoryCacheManager.swift in Sources */,
 				BF12FD5527E42CE3004DC41C /* SearchViewModel.swift in Sources */,
 				BF12FD7127E4503B004DC41C /* DiskCacheManager.swift in Sources */,
+				BFAC103827E8326500FB5A9A /* PreviewTbCellVM.swift in Sources */,
+				BFAC104227E8387000FB5A9A /* TextViewTypeBTbCell.swift in Sources */,
+				BFAC103527E8325500FB5A9A /* PreviewTbCell.swift in Sources */,
 				BF12FD8927E47546004DC41C /* CellConfigType.swift in Sources */,
 				BF12FD5A27E43894004DC41C /* DetailViewModel.swift in Sources */,
 				BF12FD2E27E427D3004DC41C /* AppDelegate.swift in Sources */,
 				BF12FDAC27E707D9004DC41C /* InfoPaginationTbCellVM.swift in Sources */,
+				BFAC104527E8388000FB5A9A /* TextViewTypeBTbCellVM.swift in Sources */,
 				BF12FD6627E44CF9004DC41C /* ServiceProvier.swift in Sources */,
 				BF12FD7E27E46DEA004DC41C /* SearchTbCell.swift in Sources */,
+				BFAC103D27E833E300FB5A9A /* PreviewPagerCell.swift in Sources */,
 				BF12FD7927E4566C004DC41C /* String+Extension.swift in Sources */,
 				BF12FDA927E706BC004DC41C /* InfoPagerViewCell.swift in Sources */,
 				BF12FD5827E4388C004DC41C /* DetailViewController.swift in Sources */,

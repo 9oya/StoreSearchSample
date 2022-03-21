@@ -33,7 +33,9 @@ extension DetailViewController {
         tv.registerCells([
             DetailHeaderTbCell.self,
             InfoPaginationTbCell.self,
-            TextViewTypeATbCell.self
+            TextViewTypeATbCell.self,
+            PreviewTbCell.self,
+            TextViewTypeBTbCell.self
         ])
         tv.rx.setDelegate(self).disposed(by: self.disposeBag)
     }
@@ -55,7 +57,7 @@ extension DetailViewController {
                     .dequeueReusableCell(withIdentifier: item.cellIdentifier,
                                          for: IndexPath(row: idx,
                                                         section: 0))
-                self?.bindCells(cell)
+                self?.bindCells(cell, viewModel)
                 return item.configure(cell: cell,
                                       with: IndexPath(row: idx,
                                                       section: 0))
@@ -68,19 +70,30 @@ extension DetailViewController {
             .disposed(by: disposeBag)
     }
     
-    private func bindCells(_ cell: UITableViewCell) {
-        
-        guard let viewModel = viewModel else { return }
+    private func bindCells(_ cell: UITableViewCell,
+                           _ viewModel: DetailViewModel) {
         
         if let cell = cell as? TextViewTypeATbCell {
             cell.moreButton.rx
                 .tap
                 .do(onNext: { _ in
                     let sizeThatFitsTextView = cell.contentsTxtView
-                        .sizeThatFits(CGSize(width: cell.contentsTxtView.frame.size.width, height: CGFloat(MAXFLOAT)))
-                    viewModel.txtvContentsHeightA = sizeThatFitsTextView.height
+                        .sizeThatFits(CGSize(width: cell.contentsTxtView.frame.size.width,
+                                             height: CGFloat(MAXFLOAT)))
+                    viewModel.txtvContentsHeightA = sizeThatFitsTextView.height+62+15
                 })
-                .bind(to: viewModel.moreButtonA)
+                .bind(to: viewModel.moreButton)
+                .disposed(by: cell.disposeBag)
+        } else if let cell = cell as? TextViewTypeBTbCell {
+            cell.moreButton.rx
+                .tap
+                .do(onNext: { _ in
+                    let sizeThatFitsTextView = cell.contentsTxtView
+                        .sizeThatFits(CGSize(width: cell.contentsTxtView.frame.size.width,
+                                             height: CGFloat(MAXFLOAT)))
+                    viewModel.txtvContentsHeightB = sizeThatFitsTextView.height+30
+                })
+                .bind(to: viewModel.moreButton)
                 .disposed(by: cell.disposeBag)
         }
         
