@@ -384,8 +384,8 @@
 		BFAC103927E833B100FB5A9A /* InfoPagerCell */ = {
 			isa = PBXGroup;
 			children = (
-				BF12FDA727E706BC004DC41C /* InfoPagerViewCell.swift */,
 				BF12FDA827E706BC004DC41C /* InfoPagerViewCell.xib */,
+				BF12FDA727E706BC004DC41C /* InfoPagerViewCell.swift */,
 			);
 			path = InfoPagerCell;
 			sourceTree = "<group>";

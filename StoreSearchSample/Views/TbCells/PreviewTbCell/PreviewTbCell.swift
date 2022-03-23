@@ -50,7 +50,7 @@ extension PreviewTbCell {
         pagerView = {
             let pagerView = SSPagerView()
             pagerView.interitemSpacing = 5
-            pagerView.backgroundColor = .systemYellow
+            pagerView.backgroundColor = .white
             pagerView.itemSize = CGSize(width: 392*0.5,
                                         height: 696*0.5)
             pagerView.contentsInset = UIEdgeInsets(top: 0,
@@ -70,7 +70,7 @@ extension PreviewTbCell {
         contentView.addSubview(pagerView)
         
         NSLayoutConstraint.activate([
-            pagerView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor),
+            pagerView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 10),
             pagerView.leftAnchor.constraint(equalTo: contentView.leftAnchor),
             pagerView.rightAnchor.constraint(equalTo: contentView.rightAnchor),
             pagerView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -15)
@@ -81,6 +81,11 @@ extension PreviewTbCell {
     private func bind(with viewModel: PreviewTbCellVM) {
         
         // MARK: Inputs
+        viewModel
+            .titleTxt
+            .bind(to: titleLabel.rx.text)
+            .disposed(by: disposeBag)
+        
         viewModel
             .appModel
             .compactMap { $0.screenshotUrls }

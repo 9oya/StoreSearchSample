@@ -49,7 +49,7 @@ extension InfoPaginationTbCell {
         pagerView = {
             let pagerView = SSPagerView()
             pagerView.interitemSpacing = 0
-            pagerView.backgroundColor = .systemYellow
+            pagerView.backgroundColor = .white
             pagerView.itemSize = CGSize(width: 110,
                                         height: 100)
             pagerView.contentsInset = UIEdgeInsets(top: 0,
@@ -105,6 +105,7 @@ extension InfoPaginationTbCell {
                 if let cell = cell as? InfoPagerViewCell {
                     cell.titleLabel.text = item.title
                     cell.contentsLabel.text = item.subTitle
+                    if idx == 4 { cell.verticalSeperator.isHidden = true }
                 }
             }
             .disposed(by: disposeBag)

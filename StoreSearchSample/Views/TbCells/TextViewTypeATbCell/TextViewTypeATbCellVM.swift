@@ -17,15 +17,19 @@ class TextViewTypeATbCellVM: CellConfigType {
     var onAppear = PublishRelay<Bool>()
     
     // MARK: Outputs
+    var titleTxt = PublishRelay<String>()
     var appModel = PublishRelay<SearchModel>()
     
     init(cellHeight: CGFloat,
-         model: SearchModel) {
+         model: SearchModel,
+         titleTxt: String) {
         self.cellHeight = cellHeight
         
         onAppear
             .bind { [weak self] _ in
-                self?.bind(model)
+                guard let `self` = self else { return }
+                self.appModel.accept(model)
+                self.titleTxt.accept(titleTxt)
             }
             .disposed(by: disposeBag)
     }
@@ -44,14 +48,4 @@ class TextViewTypeATbCellVM: CellConfigType {
         }
         return UITableViewCell()
     }
-}
-
-extension TextViewTypeATbCellVM {
-    
-    private func bind(_ model: SearchModel) {
-        appModel.accept(model)
-        
-        
-    }
-    
 }

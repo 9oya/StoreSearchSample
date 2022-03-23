@@ -19,16 +19,20 @@ class PreviewTbCellVM: CellConfigType {
     
     // MARK: Outputs
     var appModel = PublishRelay<SearchModel>()
+    var titleTxt = PublishRelay<String>()
     
     init(provider: ServiceProviderProtocol,
          cellHeight: CGFloat,
-         model: SearchModel) {
+         model: SearchModel,
+         titleTxt: String) {
         self.provider = provider
         self.cellHeight = cellHeight
         
         onAppear
             .bind { [weak self] _ in
-                self?.bind(model)
+                guard let `self` = self else { return }
+                self.appModel.accept(model)
+                self.titleTxt.accept(titleTxt)
             }
             .disposed(by: disposeBag)
     }
@@ -46,15 +50,6 @@ class PreviewTbCellVM: CellConfigType {
             return cell
         }
         return UITableViewCell()
-    }
-    
-}
-
-extension PreviewTbCellVM {
-    
-    private func bind(_ model: SearchModel) {
-        appModel.accept(model)
-        
     }
     
 }

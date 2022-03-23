@@ -63,13 +63,15 @@ extension DetailViewModel {
             
             configs.append(TextViewTypeATbCellVM(
                 cellHeight: self.txtvContentsHeightA.1,
-                model: model)
+                model: model,
+                titleTxt: "새로운 기능")
             )
             
             configs.append(PreviewTbCellVM(
                 provider: self.provider,
-                cellHeight: 27+(696*0.5)+15, // header+body+footer
-                model: model)
+                cellHeight: 37+(696*0.5)+15, // header+body+footer
+                model: model,
+                titleTxt: "미리보기")
             )
             
             configs.append(TextViewTypeBTbCellVM(

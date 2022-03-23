@@ -52,8 +52,13 @@ extension TextViewTypeATbCell {
         
         // MARK: Inputs
         viewModel
+            .titleTxt
+            .bind(to: titleLabel.rx.text)
+            .disposed(by: disposeBag)
+        
+        viewModel
             .appModel
-            .map { $0.trackName}
+            .map { $0.trackName }
             .bind(to: titleLabel.rx.text)
             .disposed(by: disposeBag)
         
