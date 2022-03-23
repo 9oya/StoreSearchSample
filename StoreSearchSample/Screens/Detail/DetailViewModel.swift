@@ -14,12 +14,11 @@ class DetailViewModel {
     var provider: ServiceProviderProtocol
     var disposeBag: DisposeBag = DisposeBag()
     
-    var txtvContentsHeightA: CGFloat = 170
-    var txtvContentsHeightB: CGFloat = 120
+    var txtvContentsHeightA: (Int, CGFloat) = (2, 170)
+    var txtvContentsHeightB: (Int, CGFloat) = (4, 120)
     
     // MARK: Inputs
     var onAppear = PublishRelay<Bool>()
-    var moreButton = PublishRelay<Void>()
     
     // MARK: Outputs
     var cellConfigs = BehaviorRelay<[CellConfigType]>(value: [])
@@ -29,16 +28,6 @@ class DetailViewModel {
         self.provider = provider
         
         onAppear
-            .flatMap { _ -> Observable<SearchModel> in
-                return .just(appModel)
-            }
-            .flatMap(convertToCellConfigs)
-            .bind { [weak self] configs in
-                self?.cellConfigs.accept(configs)
-            }
-            .disposed(by: disposeBag)
-
-        moreButton
             .flatMap { _ -> Observable<SearchModel> in
                 return .just(appModel)
             }
@@ -73,7 +62,7 @@ extension DetailViewModel {
             )
             
             configs.append(TextViewTypeATbCellVM(
-                cellHeight: self.txtvContentsHeightA,
+                cellHeight: self.txtvContentsHeightA.1,
                 model: model)
             )
             
@@ -84,7 +73,7 @@ extension DetailViewModel {
             )
             
             configs.append(TextViewTypeBTbCellVM(
-                cellHeight: self.txtvContentsHeightB,
+                cellHeight: self.txtvContentsHeightB.1,
                 model: model)
             )
             

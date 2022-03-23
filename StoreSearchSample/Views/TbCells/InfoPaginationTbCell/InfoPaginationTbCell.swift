@@ -50,14 +50,12 @@ extension InfoPaginationTbCell {
             let pagerView = SSPagerView()
             pagerView.interitemSpacing = 0
             pagerView.backgroundColor = .systemYellow
-            
             pagerView.itemSize = CGSize(width: 110,
                                         height: 100)
             pagerView.contentsInset = UIEdgeInsets(top: 0,
                                                    left: 15,
                                                    bottom: 0,
                                                    right: 15)
-            
             pagerView.pagingMode = .disable
             
             let id = String.className(InfoPagerViewCell.self)
@@ -65,7 +63,6 @@ extension InfoPaginationTbCell {
                                      bundle: nil),
                                forCellWithReuseIdentifier: id)
             pagerView.translatesAutoresizingMaskIntoConstraints = false
-            
             return pagerView
         }()
         
@@ -83,23 +80,46 @@ extension InfoPaginationTbCell {
     private func bind(with viewModel: InfoPaginationTbCellVM) {
         
         // MARK: Inputs
+        viewModel
+            .appModel
+            .map {
+                [
+                    DetailInfoModel(title: $0.userRatingCount.formatUsingAbbrevation()+"개의 평가",
+                                    subTitle: String(format: "%.1f", Float($0.averageUserRating ?? 0)),
+                                    descTxt: nil),
+                    DetailInfoModel(title: "연령",
+                                    subTitle: $0.trackContentRating,
+                                    descTxt: "세"),
+                    DetailInfoModel(title: "차트",
+                                    subTitle: "#0",
+                                    descTxt: "세"),
+                    DetailInfoModel(title: "개발자",
+                                    subTitle: nil,
+                                    descTxt: "세"),
+                    DetailInfoModel(title: "언어",
+                                    subTitle: $0.languageCodesISO2A.filter { $0 == "KO" }.first ?? $0.languageCodesISO2A.first ?? "",
+                                    descTxt: $0.sellerName)
+                ]
+            }
+            .bind(to: pagerView.rx.pages(cellIdentifier: String(describing: InfoPagerViewCell.self))) { idx, item, cell in
+                if let cell = cell as? InfoPagerViewCell {
+                    cell.titleLabel.text = item.title
+                    cell.contentsLabel.text = item.subTitle
+                }
+            }
+            .disposed(by: disposeBag)
         
         // MARK: Outputs
         Observable.just(true)
             .asObservable()
             .bind(to: viewModel.onAppear)
             .disposed(by: disposeBag)
-        
-        let test = ["A", "A", "A", "A"]
-        
-        Observable.just(test)
-            .bind(to: pagerView.rx.pages(cellIdentifier: String(describing: InfoPagerViewCell.self))) { idx, item, cell in
-                if let cell = cell as? InfoPagerViewCell {
-                    cell.titleLabel.text = item
-                }
-            }
-            .disposed(by: disposeBag)
-        
     }
     
+}
+
+struct DetailInfoModel {
+    let title: String
+    let subTitle: String?
+    let descTxt: String?
 }

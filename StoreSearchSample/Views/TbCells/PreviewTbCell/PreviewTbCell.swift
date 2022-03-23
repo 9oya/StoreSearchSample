@@ -51,14 +51,12 @@ extension PreviewTbCell {
             let pagerView = SSPagerView()
             pagerView.interitemSpacing = 5
             pagerView.backgroundColor = .systemYellow
-            
             pagerView.itemSize = CGSize(width: 392*0.5,
                                         height: 696*0.5)
             pagerView.contentsInset = UIEdgeInsets(top: 0,
                                                    left: 15,
                                                    bottom: 0,
                                                    right: 15)
-            
             pagerView.pagingMode = .scrollable
             
             let id = String.className(PreviewPagerCell.self)
@@ -66,7 +64,6 @@ extension PreviewTbCell {
                                      bundle: nil),
                                forCellWithReuseIdentifier: id)
             pagerView.translatesAutoresizingMaskIntoConstraints = false
-            
             return pagerView
         }()
         
@@ -84,24 +81,22 @@ extension PreviewTbCell {
     private func bind(with viewModel: PreviewTbCellVM) {
         
         // MARK: Inputs
+        viewModel
+            .appModel
+            .compactMap { $0.screenshotUrls }
+            .bind(to: pagerView.rx.pages(cellIdentifier: String(describing: PreviewPagerCell.self))) { [weak self] idx, item, cell in
+                if let cell = cell as? PreviewPagerCell {
+                    cell.provider = self?.viewModel?.provider
+                    cell.imgUrl.accept(item)
+                }
+            }
+            .disposed(by: disposeBag)
         
         // MARK: Outputs
         Observable.just(true)
             .asObservable()
             .bind(to: viewModel.onAppear)
             .disposed(by: disposeBag)
-        
-        let test = ["A", "A", "A", "A"]
-        
-        Observable.just(test)
-            .bind(to: pagerView.rx.pages(cellIdentifier: String(describing: PreviewPagerCell.self))) { idx, item, cell in
-                if let cell = cell as? PreviewPagerCell {
-//                    cell.titleLabel.text = item
-                    cell.imgView.backgroundColor = .green
-                }
-            }
-            .disposed(by: disposeBag)
-        
     }
     
 }

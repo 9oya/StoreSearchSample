@@ -57,7 +57,7 @@ extension DetailViewController {
                     .dequeueReusableCell(withIdentifier: item.cellIdentifier,
                                          for: IndexPath(row: idx,
                                                         section: 0))
-                self?.bindCells(cell, viewModel)
+                self?.bindCells(cell, idx, viewModel)
                 return item.configure(cell: cell,
                                       with: IndexPath(row: idx,
                                                       section: 0))
@@ -71,29 +71,34 @@ extension DetailViewController {
     }
     
     private func bindCells(_ cell: UITableViewCell,
+                           _ idx: Int,
                            _ viewModel: DetailViewModel) {
         
         if let cell = cell as? TextViewTypeATbCell {
             cell.moreButton.rx
                 .tap
-                .do(onNext: { _ in
+                .bind(onNext: { [weak self] _ in
                     let sizeThatFitsTextView = cell.contentsTxtView
                         .sizeThatFits(CGSize(width: cell.contentsTxtView.frame.size.width,
                                              height: CGFloat(MAXFLOAT)))
-                    viewModel.txtvContentsHeightA = sizeThatFitsTextView.height+62+15
+                    viewModel.txtvContentsHeightA = (viewModel.txtvContentsHeightA.0,
+                                                     sizeThatFitsTextView.height+62+15)
+                    self?.tv.reloadRows(at: [IndexPath(row: idx, section: 0)],
+                                        with: .automatic)
                 })
-                .bind(to: viewModel.moreButton)
                 .disposed(by: cell.disposeBag)
         } else if let cell = cell as? TextViewTypeBTbCell {
             cell.moreButton.rx
                 .tap
-                .do(onNext: { _ in
+                .bind(onNext: { [weak self] _ in
                     let sizeThatFitsTextView = cell.contentsTxtView
                         .sizeThatFits(CGSize(width: cell.contentsTxtView.frame.size.width,
                                              height: CGFloat(MAXFLOAT)))
-                    viewModel.txtvContentsHeightB = sizeThatFitsTextView.height+30
+                    viewModel.txtvContentsHeightB = (viewModel.txtvContentsHeightB.0,
+                                                     sizeThatFitsTextView.height+30)
+                    self?.tv.reloadRows(at: [IndexPath(row: idx, section: 0)],
+                                        with: .automatic)
                 })
-                .bind(to: viewModel.moreButton)
                 .disposed(by: cell.disposeBag)
         }
         
@@ -106,7 +111,13 @@ extension DetailViewController: UITableViewDelegate {
     // MARK: UITableViewDelegate
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return viewModel?.cellConfigs.value[indexPath.row].cellHeight ?? 0
+        guard let vm = viewModel else { return 0 }
+        if indexPath.row == vm.txtvContentsHeightA.0 {
+            return vm.txtvContentsHeightA.1
+        } else if indexPath.row == vm.txtvContentsHeightB.0 {
+            return vm.txtvContentsHeightB.1
+        }
+        return vm.cellConfigs.value[indexPath.row].cellHeight
     }
     
 }
