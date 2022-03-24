@@ -47,6 +47,7 @@ extension TextViewTypeATbCell {
     private func configureViews() {
         selectionStyle = .none
         
+        moreButton.titleLabel?.font = .systemFont(ofSize: 12, weight: .regular)
         moreButton.backgroundColor = .white
         moreButton.addShadowView(offset: CGSize(width: -10, height: 0),
                                  opacity: 1,
@@ -78,7 +79,8 @@ extension TextViewTypeATbCell {
         viewModel
             .buttonTxt
             .bind(onNext: { [weak self] text in
-                self?.moreButton.setTitle(text, for: .normal)
+                guard let `self` = self else { return }
+                self.moreButton.setTitle(text, for: .normal)
             })
             .disposed(by: disposeBag)
         

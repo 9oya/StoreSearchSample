@@ -19,6 +19,7 @@ class DetailViewModel {
     
     // MARK: Outputs
     var cellConfigs = BehaviorRelay<[CellConfigType]>(value: [])
+    var logoImg: UIImage?
     
     init(appModel: SearchModel,
          provider: ServiceProviderProtocol) {
@@ -28,6 +29,21 @@ class DetailViewModel {
             .flatMap { _ -> Observable<SearchModel> in
                 return .just(appModel)
             }
+            .do(onNext: { model in
+                DispatchQueue.global(qos: .userInteractive).async {
+                    guard let urlStr = model.artworkUrl60,
+                            let url = URL(string: urlStr) else {
+                        return
+                    }
+                    do {
+                        let data = try Data(contentsOf: url)
+                        self.logoImg = UIImage(data: data)
+                    } catch let error {
+                        print(error.localizedDescription)
+                    }
+                    
+                }
+            })
             .flatMap(convertToCellConfigs)
             .bind { [weak self] configs in
                 self?.cellConfigs.accept(configs)

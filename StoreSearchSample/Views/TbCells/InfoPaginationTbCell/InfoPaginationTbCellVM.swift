@@ -28,7 +28,7 @@ class InfoPaginationTbCellVM: CellConfigType {
         
         onAppear
             .bind { [weak self] _ in
-                self?.bind(model)
+                self?.appModel.accept(model)
             }
             .disposed(by: disposeBag)
     }
@@ -46,15 +46,6 @@ class InfoPaginationTbCellVM: CellConfigType {
             return cell
         }
         return UITableViewCell()
-    }
-    
-}
-
-extension InfoPaginationTbCellVM {
-    
-    private func bind(_ model: SearchModel) {
-        appModel.accept(model)
-        
     }
     
 }
