@@ -26,6 +26,9 @@ class PreviewPagerCell: SSPagerViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         imgView.layer.cornerRadius = 15.0
+        
+        imgView.layer.borderWidth = 1.0
+        imgView.layer.borderColor = UIColor.systemGray5.cgColor
     }
 
     override func prepareForReuse() {

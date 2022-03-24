@@ -102,6 +102,18 @@ extension DetailViewController {
                                         with: .automatic)
                 })
                 .disposed(by: cell.disposeBag)
+        } else if let cell = cell as? DetailHeaderTbCell {
+            cell.openButton.rx
+                .tap
+                .bind { _ in
+                    UIView.animate(withDuration: 0.2) {
+                        cell.openButton.backgroundColor = .black
+                    }
+                    UIView.animate(withDuration: 0.2, delay: 0.2, options: .curveEaseOut) {
+                        cell.openButton.backgroundColor = .systemBlue
+                    }
+                }
+                .disposed(by: cell.disposeBag)
         }
         
     }

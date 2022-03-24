@@ -49,6 +49,7 @@
 		BF12FDB827E717C0004DC41C /* TextViewTypeATbCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF12FDB627E717C0004DC41C /* TextViewTypeATbCell.swift */; };
 		BF12FDB927E717C0004DC41C /* TextViewTypeATbCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF12FDB727E717C0004DC41C /* TextViewTypeATbCell.xib */; };
 		BF12FDBB27E718D4004DC41C /* TextViewTypeATbCellVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF12FDBA27E718D4004DC41C /* TextViewTypeATbCellVM.swift */; };
+		BF3526DD27EC699D0030E68C /* DetailInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3526DC27EC699D0030E68C /* DetailInfoModel.swift */; };
 		BFAC103527E8325500FB5A9A /* PreviewTbCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFAC103327E8325500FB5A9A /* PreviewTbCell.swift */; };
 		BFAC103627E8325500FB5A9A /* PreviewTbCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFAC103427E8325500FB5A9A /* PreviewTbCell.xib */; };
 		BFAC103827E8326500FB5A9A /* PreviewTbCellVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFAC103727E8326500FB5A9A /* PreviewTbCellVM.swift */; };
@@ -57,6 +58,7 @@
 		BFAC104227E8387000FB5A9A /* TextViewTypeBTbCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFAC104027E8387000FB5A9A /* TextViewTypeBTbCell.swift */; };
 		BFAC104327E8387000FB5A9A /* TextViewTypeBTbCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFAC104127E8387000FB5A9A /* TextViewTypeBTbCell.xib */; };
 		BFAC104527E8388000FB5A9A /* TextViewTypeBTbCellVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFAC104427E8388000FB5A9A /* TextViewTypeBTbCellVM.swift */; };
+		BFDC36CA27EC572500B5B0C5 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDC36C927EC572500B5B0C5 /* UIView+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -117,6 +119,7 @@
 		BF12FDB627E717C0004DC41C /* TextViewTypeATbCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewTypeATbCell.swift; sourceTree = "<group>"; };
 		BF12FDB727E717C0004DC41C /* TextViewTypeATbCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TextViewTypeATbCell.xib; sourceTree = "<group>"; };
 		BF12FDBA27E718D4004DC41C /* TextViewTypeATbCellVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewTypeATbCellVM.swift; sourceTree = "<group>"; };
+		BF3526DC27EC699D0030E68C /* DetailInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailInfoModel.swift; sourceTree = "<group>"; };
 		BFAC103327E8325500FB5A9A /* PreviewTbCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewTbCell.swift; sourceTree = "<group>"; };
 		BFAC103427E8325500FB5A9A /* PreviewTbCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PreviewTbCell.xib; sourceTree = "<group>"; };
 		BFAC103727E8326500FB5A9A /* PreviewTbCellVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewTbCellVM.swift; sourceTree = "<group>"; };
@@ -125,6 +128,7 @@
 		BFAC104027E8387000FB5A9A /* TextViewTypeBTbCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewTypeBTbCell.swift; sourceTree = "<group>"; };
 		BFAC104127E8387000FB5A9A /* TextViewTypeBTbCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TextViewTypeBTbCell.xib; sourceTree = "<group>"; };
 		BFAC104427E8388000FB5A9A /* TextViewTypeBTbCellVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewTypeBTbCellVM.swift; sourceTree = "<group>"; };
+		BFDC36C927EC572500B5B0C5 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		D16C227FA94887917E83A278 /* Pods_StoreSearchSampleTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StoreSearchSampleTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA8FA6415DFF82C5A23C87F8 /* Pods-StoreSearchSampleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StoreSearchSampleTests.release.xcconfig"; path = "Target Support Files/Pods-StoreSearchSampleTests/Pods-StoreSearchSampleTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -254,6 +258,7 @@
 			isa = PBXGroup;
 			children = (
 				BF12FD5C27E438C3004DC41C /* SearchModel.swift */,
+				BF3526DC27EC699D0030E68C /* DetailInfoModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -287,6 +292,7 @@
 				BF12FD7827E4566C004DC41C /* String+Extension.swift */,
 				BF12FD8A27E5B226004DC41C /* UITableView+Extension.swift */,
 				BF12FD9027E6C35C004DC41C /* Int+Extension.swift */,
+				BFDC36C927EC572500B5B0C5 /* UIView+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -622,6 +628,7 @@
 				BF12FD6B27E44DBF004DC41C /* NetworkRouter.swift in Sources */,
 				BF12FD7727E450FF004DC41C /* ImageLoadService.swift in Sources */,
 				BF12FD9727E6EB20004DC41C /* DetailHeaderTbCell.swift in Sources */,
+				BF3526DD27EC699D0030E68C /* DetailInfoModel.swift in Sources */,
 				BF12FD9E27E70268004DC41C /* InfoPaginationTbCell.swift in Sources */,
 				BF12FD6F27E45022004DC41C /* MemoryCacheManager.swift in Sources */,
 				BF12FD5527E42CE3004DC41C /* SearchViewModel.swift in Sources */,
@@ -645,6 +652,7 @@
 				BF12FD8D27E6BE0A004DC41C /* SearchTbCellVM.swift in Sources */,
 				BF12FD9127E6C35C004DC41C /* Int+Extension.swift in Sources */,
 				BF12FD5D27E438C3004DC41C /* SearchModel.swift in Sources */,
+				BFDC36CA27EC572500B5B0C5 /* UIView+Extension.swift in Sources */,
 				BF12FD5327E42CDA004DC41C /* SearchViewController.swift in Sources */,
 				BF12FD7327E450F0004DC41C /* SearchService.swift in Sources */,
 				BF12FD6427E44CF1004DC41C /* ManagerProvider.swift in Sources */,

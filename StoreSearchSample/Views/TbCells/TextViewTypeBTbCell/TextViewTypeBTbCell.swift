@@ -44,6 +44,13 @@ extension TextViewTypeBTbCell {
     
     private func configureViews() {
         selectionStyle = .none
+        
+        moreButton.backgroundColor = .white
+        moreButton.addShadowView(offset: CGSize(width: -10, height: 0),
+                                 opacity: 1,
+                                 radius: 10,
+                                 color: UIColor.white.cgColor,
+                                 maskToBounds: false)
     }
     
     private func bind(with viewModel: TextViewTypeBTbCellVM) {

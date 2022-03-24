@@ -47,13 +47,12 @@ extension TextViewTypeATbCell {
     private func configureViews() {
         selectionStyle = .none
         
-//        moreButton.backgroundColor = .white
-        moreButton.layer.cornerRadius = 15
-//        moreButton.layer.masksToBounds = true
-        moreButton.layer.shadowColor = UIColor.gray.cgColor
-        moreButton.layer.shadowOpacity = 1.0
-        moreButton.layer.shadowOffset = CGSize(width: 70, height: 30)
-        moreButton.layer.shadowRadius = 10
+        moreButton.backgroundColor = .white
+        moreButton.addShadowView(offset: CGSize(width: -10, height: 0),
+                                 opacity: 1,
+                                 radius: 10,
+                                 color: UIColor.white.cgColor,
+                                 maskToBounds: false)
     }
     
     private func bind(with viewModel: TextViewTypeATbCellVM) {

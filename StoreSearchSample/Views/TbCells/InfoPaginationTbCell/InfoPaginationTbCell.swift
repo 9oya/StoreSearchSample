@@ -86,25 +86,48 @@ extension InfoPaginationTbCell {
                 [
                     DetailInfoModel(title: $0.userRatingCount.formatUsingAbbrevation()+"개의 평가",
                                     subTitle: String(format: "%.1f", Float($0.averageUserRating ?? 0)),
-                                    descTxt: nil),
+                                    rating: $0.averageUserRating),
                     DetailInfoModel(title: "연령",
                                     subTitle: $0.trackContentRating,
                                     descTxt: "세"),
                     DetailInfoModel(title: "차트",
                                     subTitle: "#0",
-                                    descTxt: "세"),
+                                    descTxt: $0.genres?.first ?? ""),
                     DetailInfoModel(title: "개발자",
-                                    subTitle: nil,
-                                    descTxt: "세"),
+                                    descTxt: $0.artistName,
+                                    image: UIImage(systemName: "person.crop.square")),
                     DetailInfoModel(title: "언어",
                                     subTitle: $0.languageCodesISO2A.filter { $0 == "KO" }.first ?? $0.languageCodesISO2A.first ?? "",
-                                    descTxt: $0.sellerName)
+                                    descTxt: "\($0.languageCodesISO2A.count)개 언어")
                 ]
             }
             .bind(to: pagerView.rx.pages(cellIdentifier: String(describing: InfoPagerViewCell.self))) { idx, item, cell in
                 if let cell = cell as? InfoPagerViewCell {
                     cell.titleLabel.text = item.title
-                    cell.contentsLabel.text = item.subTitle
+                    
+                    if let subTitle = item.subTitle {
+                        cell.contentsLabel.isHidden = false
+                        cell.contentsImgView.isHidden = true
+                        cell.contentsLabel.text = subTitle
+                    } else if let img = item.image {
+                        cell.contentsLabel.isHidden = true
+                        cell.contentsImgView.isHidden = false
+                        cell.contentsImgView.tintColor = .systemGray
+                        cell.contentsImgView.image = img
+                    }
+                    
+                    if let desc = item.descTxt {
+                        cell.descLabel.isHidden = false
+                        cell.starsStackView.isHidden = true
+                        cell.descLabel.text = desc
+                    } else if let imgvs = cell.starsStackView.arrangedSubviews as? [UIImageView],
+                              let rating = item.rating {
+                        cell.descLabel.isHidden = true
+                        cell.starsStackView.isHidden = false
+                        self.genStars(with: rating,
+                                      for: imgvs)
+                    }
+                    
                     if idx == 4 { cell.verticalSeperator.isHidden = true }
                 }
             }
@@ -117,10 +140,4 @@ extension InfoPaginationTbCell {
             .disposed(by: disposeBag)
     }
     
-}
-
-struct DetailInfoModel {
-    let title: String
-    let subTitle: String?
-    let descTxt: String?
 }

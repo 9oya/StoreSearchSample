@@ -125,12 +125,12 @@ extension SearchTbCell {
             .compactMap { $0.averageUserRating }
             .bind { [weak self] rating in
                 guard let `self` = self,
-                      let stars = self.ratingStackView
+                      let imgvs = self.ratingStackView
                         .arrangedSubviews as? [UIImageView] else {
                             return
                         }
-                self.genStars(stars: stars,
-                              rating: rating)
+                self.genStars(with: rating,
+                              for: imgvs)
                 
             }
             .disposed(by: disposeBag)
@@ -140,52 +140,6 @@ extension SearchTbCell {
             .asObservable()
             .bind(to: viewModel.onAppear)
             .disposed(by: disposeBag)
-    }
-    
-    func genStars(stars: [UIImageView], rating: Float) {
-        stars.forEach { iv in
-            iv.image = UIImage(named: "starfill0")
-        }
-        if rating > 4 {
-            stars[0].image = UIImage(named: "starfill6")
-            stars[1].image = UIImage(named: "starfill6")
-            stars[2].image = UIImage(named: "starfill6")
-            stars[3].image = UIImage(named: "starfill6")
-            stars[4].image = self.starImage(with: rating-4)
-        } else if rating > 3 {
-            stars[0].image = UIImage(named: "starfill6")
-            stars[1].image = UIImage(named: "starfill6")
-            stars[2].image = UIImage(named: "starfill6")
-            stars[3].image = self.starImage(with: rating-3)
-        } else if rating > 2 {
-            stars[0].image = UIImage(named: "starfill6")
-            stars[1].image = UIImage(named: "starfill6")
-            stars[2].image = self.starImage(with: rating-2)
-        } else if rating > 1 {
-            stars[0].image = UIImage(named: "starfill6")
-            stars[1].image = self.starImage(with: rating-1)
-        } else if rating > 0 {
-            stars[0].image = self.starImage(with: rating)
-        }
-    }
-    
-    func starImage(with rate: Float)
-    -> UIImage {
-        var image: UIImage = UIImage(named: "starfill0")!
-        if rate > 0.81 {
-            image = UIImage(named: "starfill6")!
-        } else if rate > 0.65 {
-            image = UIImage(named: "starfill5")!
-        } else if rate > 0.48 {
-            image = UIImage(named: "starfill4")!
-        } else if rate > 0.32 {
-            image = UIImage(named: "starfill3")!
-        } else if rate > 0.16 {
-            image = UIImage(named: "starfill2")!
-        } else if rate > 0 {
-            image = UIImage(named: "starfill1")!
-        }
-        return image
     }
     
 }
