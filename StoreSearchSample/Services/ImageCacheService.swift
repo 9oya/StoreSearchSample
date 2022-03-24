@@ -43,7 +43,6 @@ class ImageCacheService: ImageCacheServiceProtocol {
     
     func cacheImage(key: String, image: UIImage)
     -> PrimitiveSequence<SingleTrait, Result<UIImage, Error>> {
-//        let key = urlStr.removeSpecialCharsFromString()
         return Single.create { [weak self] single in
             guard let `self` = self else { return Disposables.create() }
             self.provider
@@ -66,7 +65,6 @@ class ImageCacheService: ImageCacheServiceProtocol {
     
     func fetchCachedImage(key: String)
     -> PrimitiveSequence<SingleTrait, Result<UIImage?, Error>> {
-//        let key = urlStr.removeSpecialCharsFromString()
         return Single.create { [weak self] single in
             guard let `self` = self else { return Disposables.create() }
             if let cachedImg = self.provider

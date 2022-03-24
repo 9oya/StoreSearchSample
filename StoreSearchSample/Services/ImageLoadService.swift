@@ -33,7 +33,8 @@ class ImageLoadService: ImageLoadServiceProtocol {
         self.imageCacheService = imageCacheService
     }
     
-    func fetchCachedImage(_ urlStr: String) -> PrimitiveSequence<SingleTrait, Result<(String, UIImage?), Error>> {
+    func fetchCachedImage(_ urlStr: String)
+    -> PrimitiveSequence<SingleTrait, Result<(String, UIImage?), Error>> {
         let key = urlStr.removeSpecialCharsFromString()
         return Single.create { [weak self] single in
             guard let `self` = self else { return Disposables.create() }
@@ -52,7 +53,8 @@ class ImageLoadService: ImageLoadServiceProtocol {
         }
     }
     
-    func downloadImage(_ result: Result<(String, UIImage?), Error>) -> PrimitiveSequence<SingleTrait, Result<(String, UIImage), Error>> {
+    func downloadImage(_ result: Result<(String, UIImage?), Error>)
+    -> PrimitiveSequence<SingleTrait, Result<(String, UIImage), Error>> {
         return Single.create { [weak self] single in
             guard let `self` = self else { return Disposables.create() }
             switch result {
@@ -80,7 +82,8 @@ class ImageLoadService: ImageLoadServiceProtocol {
         }
     }
     
-    func cacheImage(_ result: Result<(String, UIImage), Error>) -> PrimitiveSequence<SingleTrait, Result<(String, UIImage), Error>> {
+    func cacheImage(_ result: Result<(String, UIImage), Error>)
+    -> PrimitiveSequence<SingleTrait, Result<(String, UIImage), Error>> {
         return Single.create { [weak self] single in
             guard let `self` = self else { return Disposables.create() }
             switch result {

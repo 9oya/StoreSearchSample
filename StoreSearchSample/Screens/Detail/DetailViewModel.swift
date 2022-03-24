@@ -45,9 +45,7 @@ class DetailViewModel {
                 }
             })
             .flatMap(convertToCellConfigs)
-            .bind { [weak self] configs in
-                self?.cellConfigs.accept(configs)
-            }
+            .bind(to: cellConfigs)
             .disposed(by: disposeBag)
     }
     

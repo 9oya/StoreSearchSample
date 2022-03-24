@@ -78,9 +78,7 @@ extension SearchViewController {
                 }
             })
             .compactMap { $0 }
-            .bind { [weak self] text in
-                self?.viewModel?.searchApps.accept(text)
-            }
+            .bind(to: viewModel.searchApps)
             .disposed(by: disposeBag)
         
         sc.searchBar.rx
