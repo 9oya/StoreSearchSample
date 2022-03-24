@@ -53,14 +53,13 @@ extension DetailViewController {
         viewModel
             .cellConfigs
             .bind(to: tv.rx.items) { [weak self] tv, idx, item -> UITableViewCell in
+                let indexPath = IndexPath(row: idx, section: 0)
                 let cell = tv
                     .dequeueReusableCell(withIdentifier: item.cellIdentifier,
-                                         for: IndexPath(row: idx,
-                                                        section: 0))
-                self?.bindCells(cell, idx, viewModel)
+                                         for: indexPath)
+                self?.bindCells(cell, item, indexPath)
                 return item.configure(cell: cell,
-                                      with: IndexPath(row: idx,
-                                                      section: 0))
+                                      with: indexPath)
             }
             .disposed(by: disposeBag)
         
@@ -71,32 +70,35 @@ extension DetailViewController {
     }
     
     private func bindCells(_ cell: UITableViewCell,
-                           _ idx: Int,
-                           _ viewModel: DetailViewModel) {
+                           _ cellVM: CellConfigType,
+                           _ indexPath: IndexPath) {
         
-        if let cell = cell as? TextViewTypeATbCell {
+        if let cell = cell as? TextViewTypeATbCell,
+           let cellVM = cellVM as? TextViewTypeATbCellVM {
             cell.moreButton.rx
                 .tap
                 .bind(onNext: { [weak self] _ in
                     let sizeThatFitsTextView = cell.contentsTxtView
                         .sizeThatFits(CGSize(width: cell.contentsTxtView.frame.size.width,
                                              height: CGFloat(MAXFLOAT)))
-                    viewModel.txtvContentsHeightA = (viewModel.txtvContentsHeightA.0,
-                                                     sizeThatFitsTextView.height+62+15)
-                    self?.tv.reloadRows(at: [IndexPath(row: idx, section: 0)],
+                    cellVM.isMoreButtonHidden = true
+                    cellVM.cellHeight = sizeThatFitsTextView.height+62+15
+                    self?.tv.reloadRows(at: [indexPath],
                                         with: .automatic)
                 })
                 .disposed(by: cell.disposeBag)
-        } else if let cell = cell as? TextViewTypeBTbCell {
+            
+        } else if let cell = cell as? TextViewTypeBTbCell,
+                  let cellVM = cellVM as? TextViewTypeBTbCellVM {
             cell.moreButton.rx
                 .tap
                 .bind(onNext: { [weak self] _ in
                     let sizeThatFitsTextView = cell.contentsTxtView
                         .sizeThatFits(CGSize(width: cell.contentsTxtView.frame.size.width,
                                              height: CGFloat(MAXFLOAT)))
-                    viewModel.txtvContentsHeightB = (viewModel.txtvContentsHeightB.0,
-                                                     sizeThatFitsTextView.height+30)
-                    self?.tv.reloadRows(at: [IndexPath(row: idx, section: 0)],
+                    cellVM.isMoreButtonHidden = true
+                    cellVM.cellHeight = sizeThatFitsTextView.height+30
+                    self?.tv.reloadRows(at: [indexPath],
                                         with: .automatic)
                 })
                 .disposed(by: cell.disposeBag)
@@ -111,13 +113,8 @@ extension DetailViewController: UITableViewDelegate {
     // MARK: UITableViewDelegate
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        guard let vm = viewModel else { return 0 }
-        if indexPath.row == vm.txtvContentsHeightA.0 {
-            return vm.txtvContentsHeightA.1
-        } else if indexPath.row == vm.txtvContentsHeightB.0 {
-            return vm.txtvContentsHeightB.1
-        }
-        return vm.cellConfigs.value[indexPath.row].cellHeight
+        guard let viewModel = viewModel else { return 0 }
+        return viewModel.cellConfigs.value[indexPath.row].cellHeight
     }
     
 }

@@ -49,10 +49,24 @@ extension TextViewTypeBTbCell {
     private func bind(with viewModel: TextViewTypeBTbCellVM) {
         
         // MARK: Inputs
+        UIView.transition(with: moreButton,
+                          duration: 0.5,
+                          options: .transitionCrossDissolve) { [weak self] in
+            guard let `self` = self else { return }
+            self.moreButton.isHidden = self.viewModel?.isMoreButtonHidden ?? false
+        }
+        
         viewModel
             .appModel
             .map { $0.description }
             .bind(to: contentsTxtView.rx.text)
+            .disposed(by: disposeBag)
+        
+        viewModel
+            .buttonTxt
+            .bind(onNext: { [weak self] text in
+                self?.moreButton.setTitle(text, for: .normal)
+            })
             .disposed(by: disposeBag)
         
         // MARK: Outputs

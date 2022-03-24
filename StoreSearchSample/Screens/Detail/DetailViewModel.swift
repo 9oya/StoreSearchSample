@@ -14,9 +14,6 @@ class DetailViewModel {
     var provider: ServiceProviderProtocol
     var disposeBag: DisposeBag = DisposeBag()
     
-    var txtvContentsHeightA: (Int, CGFloat) = (2, 170)
-    var txtvContentsHeightB: (Int, CGFloat) = (4, 120)
-    
     // MARK: Inputs
     var onAppear = PublishRelay<Bool>()
     
@@ -61,27 +58,54 @@ extension DetailViewModel {
                 model: model)
             )
             
-            configs.append(TextViewTypeATbCellVM(
-                cellHeight: self.txtvContentsHeightA.1,
-                model: model,
-                titleTxt: "새로운 기능")
-            )
+            if let releaseNotes = model.releaseNotes {
+                let (height, isChanged) = self.calculateTxtViewHeight(170, 62+15, releaseNotes)
+                configs.append(TextViewTypeATbCellVM(
+                    cellHeight: height,
+                    model: model,
+                    titleTxt: "새로운 기능",
+                    versionTxt: "버전 "+model.version,
+                    buttonTxt: "더 보기",
+                    isMoreButtonHidden: isChanged)
+                )
+            }
             
             configs.append(PreviewTbCellVM(
                 provider: self.provider,
-                cellHeight: 37+(696*0.5)+15, // header+body+footer
+                cellHeight: 37+(696*0.5)+25, // header+body+footer
                 model: model,
                 titleTxt: "미리보기")
             )
             
+            let (height, isChanged) = self.calculateTxtViewHeight(120, 30, model.description)
             configs.append(TextViewTypeBTbCellVM(
-                cellHeight: self.txtvContentsHeightB.1,
-                model: model)
+                cellHeight: height,
+                model: model,
+                buttonTxt: "더 보기",
+                isMoreButtonHidden: isChanged)
             )
             
             observer.onNext(configs)
             return Disposables.create()
         }
+    }
+    
+    private func calculateTxtViewHeight(_ defaultHeight: CGFloat,
+                                        _ addHeight: CGFloat,
+                                        _ contents: String) -> (CGFloat, Bool) {
+        let tempTxtView = UITextView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width-30, height: 0))
+        tempTxtView.text = contents
+        let sizeThatFitsTextView = tempTxtView
+            .sizeThatFits(CGSize(width: tempTxtView.frame.size.width,
+                                 height: CGFloat(MAXFLOAT)))
+        let calculatedHeight = sizeThatFitsTextView.height+addHeight
+        var resultHeight: CGFloat = defaultHeight
+        var isChanged: Bool = false
+        if resultHeight > calculatedHeight {
+            resultHeight = calculatedHeight
+            isChanged = true
+        }
+        return (resultHeight, isChanged)
     }
     
 }

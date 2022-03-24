@@ -13,23 +13,34 @@ class TextViewTypeATbCellVM: CellConfigType {
     
     var disposeBag: DisposeBag = DisposeBag()
     
+    var isMoreButtonHidden: Bool
+    
     // MARK: Inputs
     var onAppear = PublishRelay<Bool>()
     
     // MARK: Outputs
     var titleTxt = PublishRelay<String>()
+    var versionTxt = PublishRelay<String>()
+    var buttonTxt = PublishRelay<String>()
     var appModel = PublishRelay<SearchModel>()
     
     init(cellHeight: CGFloat,
          model: SearchModel,
-         titleTxt: String) {
+         titleTxt: String,
+         versionTxt: String,
+         buttonTxt: String,
+         isMoreButtonHidden: Bool) {
+        
         self.cellHeight = cellHeight
+        self.isMoreButtonHidden = isMoreButtonHidden
         
         onAppear
             .bind { [weak self] _ in
                 guard let `self` = self else { return }
                 self.appModel.accept(model)
                 self.titleTxt.accept(titleTxt)
+                self.versionTxt.accept(versionTxt)
+                self.buttonTxt.accept(buttonTxt)
             }
             .disposed(by: disposeBag)
     }

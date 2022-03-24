@@ -46,14 +46,41 @@ extension TextViewTypeATbCell {
     
     private func configureViews() {
         selectionStyle = .none
+        
+//        moreButton.backgroundColor = .white
+        moreButton.layer.cornerRadius = 15
+//        moreButton.layer.masksToBounds = true
+        moreButton.layer.shadowColor = UIColor.gray.cgColor
+        moreButton.layer.shadowOpacity = 1.0
+        moreButton.layer.shadowOffset = CGSize(width: 70, height: 30)
+        moreButton.layer.shadowRadius = 10
     }
     
     private func bind(with viewModel: TextViewTypeATbCellVM) {
         
         // MARK: Inputs
+        UIView.transition(with: moreButton,
+                          duration: 0.5,
+                          options: .transitionCrossDissolve) { [weak self] in
+            guard let `self` = self else { return }
+            self.moreButton.isHidden = self.viewModel?.isMoreButtonHidden ?? false
+        }
+        
         viewModel
             .titleTxt
             .bind(to: titleLabel.rx.text)
+            .disposed(by: disposeBag)
+        
+        viewModel
+            .versionTxt
+            .bind(to: versionLabel.rx.text)
+            .disposed(by: disposeBag)
+        
+        viewModel
+            .buttonTxt
+            .bind(onNext: { [weak self] text in
+                self?.moreButton.setTitle(text, for: .normal)
+            })
             .disposed(by: disposeBag)
         
         viewModel

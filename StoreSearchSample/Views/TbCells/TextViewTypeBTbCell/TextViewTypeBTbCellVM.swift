@@ -13,19 +13,27 @@ class TextViewTypeBTbCellVM: CellConfigType {
     
     var disposeBag: DisposeBag = DisposeBag()
     
+    var isMoreButtonHidden: Bool
+    
     // MARK: Inputs
     var onAppear = PublishRelay<Bool>()
     
     // MARK: Outputs
     var appModel = PublishRelay<SearchModel>()
+    var buttonTxt = PublishRelay<String>()
     
     init(cellHeight: CGFloat,
-         model: SearchModel) {
+         model: SearchModel,
+         buttonTxt: String,
+         isMoreButtonHidden: Bool) {
+        
         self.cellHeight = cellHeight
+        self.isMoreButtonHidden = isMoreButtonHidden
         
         onAppear
             .bind { [weak self] _ in
-                self?.bind(model)
+                self?.appModel.accept(model)
+                self?.buttonTxt.accept(buttonTxt)
             }
             .disposed(by: disposeBag)
     }
@@ -43,15 +51,6 @@ class TextViewTypeBTbCellVM: CellConfigType {
             return cell
         }
         return UITableViewCell()
-    }
-}
-
-extension TextViewTypeBTbCellVM {
-    
-    private func bind(_ model: SearchModel) {
-        appModel.accept(model)
-        
-        
     }
     
 }
