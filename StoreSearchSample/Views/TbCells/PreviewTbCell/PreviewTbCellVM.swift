@@ -52,4 +52,6 @@ class PreviewTbCellVM: CellConfigType {
         return UITableViewCell()
     }
     
+    var bind: ((UITableViewCell, CellConfigType, IndexPath) -> Void)?
+    
 }

@@ -29,10 +29,12 @@ class TextViewTypeATbCellVM: CellConfigType {
          titleTxt: String,
          versionTxt: String,
          buttonTxt: String,
-         isMoreButtonHidden: Bool) {
+         isMoreButtonHidden: Bool,
+         bind: ((UITableViewCell, CellConfigType, IndexPath) -> Void)?) {
         
         self.cellHeight = cellHeight
         self.isMoreButtonHidden = isMoreButtonHidden
+        self.bind = bind
         
         onAppear
             .bind { [weak self] _ in
@@ -59,4 +61,6 @@ class TextViewTypeATbCellVM: CellConfigType {
         }
         return UITableViewCell()
     }
+    
+    var bind: ((UITableViewCell, CellConfigType, IndexPath) -> Void)?
 }

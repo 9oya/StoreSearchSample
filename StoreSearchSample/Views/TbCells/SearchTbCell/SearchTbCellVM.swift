@@ -52,6 +52,8 @@ class SearchTbCellVM: CellConfigType {
         return UITableViewCell()
     }
     
+    var bind: ((UITableViewCell, CellConfigType, IndexPath) -> Void)?
+    
 }
 
 extension SearchTbCellVM {

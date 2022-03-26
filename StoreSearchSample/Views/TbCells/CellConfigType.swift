@@ -13,4 +13,6 @@ protocol CellConfigType {
     func configure(cell: UITableViewCell,
                    with indexPath: IndexPath)
     -> UITableViewCell
+    
+    var bind: ((UITableViewCell, CellConfigType, IndexPath)->Void)? { get }
 }

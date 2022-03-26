@@ -23,9 +23,11 @@ class DetailHeaderTbCellVM: CellConfigType {
     
     init(provider: ServiceProviderProtocol,
          cellHeight: CGFloat,
-         model: SearchModel) {
+         model: SearchModel,
+         bind: ((UITableViewCell, CellConfigType, IndexPath) -> Void)?) {
         self.provider = provider
         self.cellHeight = cellHeight
+        self.bind = bind
         
         onAppear
             .bind { [weak self] _ in
@@ -48,6 +50,8 @@ class DetailHeaderTbCellVM: CellConfigType {
         }
         return UITableViewCell()
     }
+    
+    var bind: ((UITableViewCell, CellConfigType, IndexPath) -> Void)?
     
 }
 
