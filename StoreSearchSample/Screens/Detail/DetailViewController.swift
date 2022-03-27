@@ -52,12 +52,14 @@ extension DetailViewController {
         tv.rx.contentOffset
             .bind { [weak self] offset in
                 guard let `self` = self else { return }
-                if offset.y > 20.0 {
+                if offset.y > 20.0,
+                    self.navigationItem.titleView?.subviews.isEmpty ?? true {
+                    
                     let button: UIButton = {
                         let button = UIButton(frame: CGRect(x: 0, y: 0, width: 73, height: 25))
                         button.setTitle("열기", for: .normal)
                         button.setTitleColor(.white, for: .normal)
-                        button.titleLabel?.font = .systemFont(ofSize: 15, weight: .medium)
+                        button.titleLabel?.font = .systemFont(ofSize: 15, weight: .semibold)
                         button.backgroundColor = .systemBlue
                         button.layer.cornerRadius = 15.0
                         return button
@@ -73,20 +75,18 @@ extension DetailViewController {
                         imgView.translatesAutoresizingMaskIntoConstraints = false
                         return imgView
                     }()
+                    
+                    self.navigationItem.titleView = imgView
+                    self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: button)
+                    
                     NSLayoutConstraint.activate([
-                        imgView.widthAnchor.constraint(equalToConstant: 25),
-                        imgView.heightAnchor.constraint(equalToConstant: 25)
+                        imgView.widthAnchor.constraint(equalToConstant: 28),
+                        imgView.heightAnchor.constraint(equalToConstant: 28)
                     ])
-                    UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseIn) {
-                        self.navigationItem.titleView = imgView
-                        self.navigationItem.titleView?.backgroundColor = .clear
-                        self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: button)
-                    }
+                    
                 } else {
-                    UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseIn) {
-                        self.navigationItem.titleView = nil
-                        self.navigationItem.rightBarButtonItem = nil
-                    }
+                    self.navigationItem.titleView = nil
+                    self.navigationItem.rightBarButtonItem = nil
                 }
             }
             .disposed(by: disposeBag)
