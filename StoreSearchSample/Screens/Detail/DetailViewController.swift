@@ -52,9 +52,8 @@ extension DetailViewController {
         tv.rx.contentOffset
             .bind { [weak self] offset in
                 guard let `self` = self else { return }
-                if offset.y > 20.0,
-                    self.navigationItem.titleView?.subviews.isEmpty ?? true {
-                    
+                if offset.y > 20.0 {
+                    guard self.navigationItem.titleView == nil else { return }
                     let button: UIButton = {
                         let button = UIButton(frame: CGRect(x: 0, y: 0, width: 73, height: 25))
                         button.setTitle("열기", for: .normal)
@@ -77,12 +76,25 @@ extension DetailViewController {
                     }()
                     
                     self.navigationItem.titleView = imgView
+                    self.navigationItem.titleView?.alpha = 0.0
+                    self.navigationItem.titleView?.transform = CGAffineTransform(translationX: 0, y: 10)
+                    
                     self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: button)
+                    self.navigationItem.rightBarButtonItem?.customView?.alpha = 0.0
+                    self.navigationItem.rightBarButtonItem?.customView?.transform = CGAffineTransform(translationX: 0, y: 10)
                     
                     NSLayoutConstraint.activate([
                         imgView.widthAnchor.constraint(equalToConstant: 28),
                         imgView.heightAnchor.constraint(equalToConstant: 28)
                     ])
+                    
+                    UIView.animate(withDuration: 0.5) {
+                        self.navigationItem.titleView?.alpha = 1.0
+                        self.navigationItem.titleView?.transform = CGAffineTransform(translationX: 0, y: 0)
+                        
+                        self.navigationItem.rightBarButtonItem?.customView?.alpha = 1.0
+                        self.navigationItem.rightBarButtonItem?.customView?.transform = CGAffineTransform(translationX: 0, y: 0)
+                    }
                     
                 } else {
                     self.navigationItem.titleView = nil
