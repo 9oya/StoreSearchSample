@@ -19,7 +19,7 @@ class DetailViewModel {
     
     // MARK: Outputs
     var cellConfigs = BehaviorRelay<[CellConfigType]>(value: [])
-    var logoImg: UIImage?
+    var logoImg = PublishRelay<UIImage>()
     
     init(appModel: SearchModel,
          provider: ServiceProviderProtocol) {
@@ -29,24 +29,28 @@ class DetailViewModel {
             .flatMap { _ -> Observable<SearchModel> in
                 return .just(appModel)
             }
-            .do(onNext: { model in
-                DispatchQueue.global(qos: .userInteractive).async {
-                    guard let urlStr = model.artworkUrl60,
-                            let url = URL(string: urlStr) else {
-                        return
-                    }
-                    do {
-                        let data = try Data(contentsOf: url)
-                        self.logoImg = UIImage(data: data)
-                    } catch let error {
-                        print(error.localizedDescription)
-                    }
-                    
-                }
-            })
             .flatMap(convertToCellConfigs)
             .bind(to: cellConfigs)
             .disposed(by: disposeBag)
+                
+        onAppear
+            .flatMap { _ -> Observable<SearchModel> in
+                return .just(appModel)
+            }
+            .compactMap { $0.artworkUrl100 }
+            .flatMap(provider.imageLoadService.fetchCachedImage)
+            .flatMap(provider.imageLoadService.downloadImage)
+            .flatMap(provider.imageLoadService.cacheImage)
+            .bind(onNext: { [weak self] result in
+                switch result {
+                case .failure(let error):
+                    print(error.localizedDescription)
+                case let .success((_, img)):
+                    self?.logoImg.accept(img)
+                }
+            })
+            .disposed(by: disposeBag)
+        
     }
     
 }

@@ -12,6 +12,9 @@ class DetailViewController: UIViewController {
     
     @IBOutlet weak var tv: UITableView!
     
+    var titleLogoImgv: UIImageView!
+    var rightBarBtn: UIButton!
+    
     var disposeBag: DisposeBag = DisposeBag()
     var viewModel: DetailViewModel?
     
@@ -38,6 +41,33 @@ extension DetailViewController {
             TextViewTypeBTbCell.self
         ])
         tv.rx.setDelegate(self).disposed(by: self.disposeBag)
+        
+        titleLogoImgv = {
+            let imgView = UIImageView()
+            imgView.contentMode = .scaleToFill
+            imgView.clipsToBounds = true
+            imgView.backgroundColor = .clear
+            imgView.layer.cornerRadius = 8.0
+            imgView.layer.borderColor = UIColor.systemGray5.cgColor
+            imgView.layer.borderWidth = 1.0
+            imgView.translatesAutoresizingMaskIntoConstraints = false
+            return imgView
+        }()
+        
+        NSLayoutConstraint.activate([
+            titleLogoImgv.widthAnchor.constraint(equalToConstant: 28),
+            titleLogoImgv.heightAnchor.constraint(equalToConstant: 28)
+        ])
+        
+        rightBarBtn = {
+            let button = UIButton(frame: CGRect(x: 0, y: 0, width: 73, height: 25))
+            button.setTitle("열기", for: .normal)
+            button.setTitleColor(.white, for: .normal)
+            button.titleLabel?.font = .systemFont(ofSize: 15, weight: .semibold)
+            button.backgroundColor = .systemBlue
+            button.layer.cornerRadius = 15.0
+            return button
+        }()
     }
     
     private func bind(with viewModel: DetailViewModel) {
@@ -54,39 +84,14 @@ extension DetailViewController {
                 guard let `self` = self else { return }
                 if offset.y > 20.0 {
                     guard self.navigationItem.titleView == nil else { return }
-                    let button: UIButton = {
-                        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 73, height: 25))
-                        button.setTitle("열기", for: .normal)
-                        button.setTitleColor(.white, for: .normal)
-                        button.titleLabel?.font = .systemFont(ofSize: 15, weight: .semibold)
-                        button.backgroundColor = .systemBlue
-                        button.layer.cornerRadius = 15.0
-                        return button
-                    }()
-                    let imgView: UIImageView = {
-                        let imgView = UIImageView(image: viewModel.logoImg)
-                        imgView.contentMode = .scaleToFill
-                        imgView.clipsToBounds = true
-                        imgView.backgroundColor = .clear
-                        imgView.layer.cornerRadius = 8.0
-                        imgView.layer.borderColor = UIColor.systemGray5.cgColor
-                        imgView.layer.borderWidth = 1.0
-                        imgView.translatesAutoresizingMaskIntoConstraints = false
-                        return imgView
-                    }()
                     
-                    self.navigationItem.titleView = imgView
+                    self.navigationItem.titleView = self.titleLogoImgv
                     self.navigationItem.titleView?.alpha = 0.0
                     self.navigationItem.titleView?.transform = CGAffineTransform(translationX: 0, y: 10)
                     
-                    self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: button)
+                    self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: self.rightBarBtn)
                     self.navigationItem.rightBarButtonItem?.customView?.alpha = 0.0
                     self.navigationItem.rightBarButtonItem?.customView?.transform = CGAffineTransform(translationX: 0, y: 10)
-                    
-                    NSLayoutConstraint.activate([
-                        imgView.widthAnchor.constraint(equalToConstant: 28),
-                        imgView.heightAnchor.constraint(equalToConstant: 28)
-                    ])
                     
                     UIView.animate(withDuration: 0.5) {
                         self.navigationItem.titleView?.alpha = 1.0
@@ -115,6 +120,11 @@ extension DetailViewController {
                 return item.configure(cell: cell,
                                       with: indexPath)
             }
+            .disposed(by: disposeBag)
+        
+        viewModel
+            .logoImg
+            .bind(to: titleLogoImgv.rx.image)
             .disposed(by: disposeBag)
         
         // MARK: Outputs
