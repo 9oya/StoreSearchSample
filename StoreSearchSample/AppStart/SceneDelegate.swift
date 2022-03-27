@@ -42,7 +42,7 @@ extension SceneDelegate {
                                  provider: ServiceProvider.resolve())
         vc.viewModel = vm
         
-        let tc = UITabBarController()
+        let tc = CustomTabbarController()
         tc.viewControllers = [nc]
         return tc
     }

@@ -59,6 +59,7 @@
 		BFAC104327E8387000FB5A9A /* TextViewTypeBTbCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFAC104127E8387000FB5A9A /* TextViewTypeBTbCell.xib */; };
 		BFAC104527E8388000FB5A9A /* TextViewTypeBTbCellVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFAC104427E8388000FB5A9A /* TextViewTypeBTbCellVM.swift */; };
 		BFDC36CA27EC572500B5B0C5 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDC36C927EC572500B5B0C5 /* UIView+Extension.swift */; };
+		BFFC2C6827F0873C0066B256 /* CustomTabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFC2C6727F0873C0066B256 /* CustomTabbarController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -129,6 +130,7 @@
 		BFAC104127E8387000FB5A9A /* TextViewTypeBTbCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TextViewTypeBTbCell.xib; sourceTree = "<group>"; };
 		BFAC104427E8388000FB5A9A /* TextViewTypeBTbCellVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewTypeBTbCellVM.swift; sourceTree = "<group>"; };
 		BFDC36C927EC572500B5B0C5 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		BFFC2C6727F0873C0066B256 /* CustomTabbarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabbarController.swift; sourceTree = "<group>"; };
 		D16C227FA94887917E83A278 /* Pods_StoreSearchSampleTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StoreSearchSampleTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA8FA6415DFF82C5A23C87F8 /* Pods-StoreSearchSampleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StoreSearchSampleTests.release.xcconfig"; path = "Target Support Files/Pods-StoreSearchSampleTests/Pods-StoreSearchSampleTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -230,6 +232,7 @@
 			children = (
 				BF12FD5627E4387F004DC41C /* Detail */,
 				BF12FD5127E42CCF004DC41C /* Search */,
+				BFFC2C6727F0873C0066B256 /* CustomTabbarController.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -629,6 +632,7 @@
 				BF12FD7727E450FF004DC41C /* ImageLoadService.swift in Sources */,
 				BF12FD9727E6EB20004DC41C /* DetailHeaderTbCell.swift in Sources */,
 				BF3526DD27EC699D0030E68C /* DetailInfoModel.swift in Sources */,
+				BFFC2C6827F0873C0066B256 /* CustomTabbarController.swift in Sources */,
 				BF12FD9E27E70268004DC41C /* InfoPaginationTbCell.swift in Sources */,
 				BF12FD6F27E45022004DC41C /* MemoryCacheManager.swift in Sources */,
 				BF12FD5527E42CE3004DC41C /* SearchViewModel.swift in Sources */,
