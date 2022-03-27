@@ -18,17 +18,18 @@ class InfoPaginationTbCellVM: CellConfigType {
     var onAppear = PublishRelay<Bool>()
     
     // MARK: Outputs
-    var appModel = PublishRelay<SearchModel>()
+    var infoModels = PublishRelay<[DetailInfoModel]>()
     
     init(provider: ServiceProviderProtocol,
          cellHeight: CGFloat,
-         model: SearchModel) {
+         infoModels: [DetailInfoModel]) {
         self.provider = provider
         self.cellHeight = cellHeight
         
         onAppear
             .bind { [weak self] _ in
-                self?.appModel.accept(model)
+                guard let `self` = self else { return }
+                self.infoModels.accept(infoModels)
             }
             .disposed(by: disposeBag)
     }

@@ -69,7 +69,23 @@ extension DetailViewModel {
             configs.append(InfoPaginationTbCellVM(
                 provider: self.provider,
                 cellHeight: 110,
-                model: model)
+                infoModels: [
+                    DetailInfoModel(title: model.userRatingCount.formatUsingAbbrevation()+"개의 평가",
+                                    subTitle: String(format: "%.1f", Float(model.averageUserRating ?? 0)),
+                                    rating: model.averageUserRating),
+                    DetailInfoModel(title: "연령",
+                                    subTitle: model.trackContentRating,
+                                    descTxt: "세"),
+                    DetailInfoModel(title: "차트",
+                                    subTitle: "#0",
+                                    descTxt: model.genres?.first ?? ""),
+                    DetailInfoModel(title: "개발자",
+                                    descTxt: model.artistName,
+                                    image: UIImage(systemName: "person.crop.square")),
+                    DetailInfoModel(title: "언어",
+                                    subTitle: model.languageCodesISO2A.filter { $0 == "KO" }.first ?? model.languageCodesISO2A.first ?? "",
+                                    descTxt: "\(model.languageCodesISO2A.count)개 언어")
+                ])
             )
             
             if let releaseNotes = model.releaseNotes {

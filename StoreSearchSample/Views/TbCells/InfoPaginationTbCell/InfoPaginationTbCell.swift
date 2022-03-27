@@ -81,26 +81,7 @@ extension InfoPaginationTbCell {
         
         // MARK: Inputs
         viewModel
-            .appModel
-            .map {
-                [
-                    DetailInfoModel(title: $0.userRatingCount.formatUsingAbbrevation()+"개의 평가",
-                                    subTitle: String(format: "%.1f", Float($0.averageUserRating ?? 0)),
-                                    rating: $0.averageUserRating),
-                    DetailInfoModel(title: "연령",
-                                    subTitle: $0.trackContentRating,
-                                    descTxt: "세"),
-                    DetailInfoModel(title: "차트",
-                                    subTitle: "#0",
-                                    descTxt: $0.genres?.first ?? ""),
-                    DetailInfoModel(title: "개발자",
-                                    descTxt: $0.artistName,
-                                    image: UIImage(systemName: "person.crop.square")),
-                    DetailInfoModel(title: "언어",
-                                    subTitle: $0.languageCodesISO2A.filter { $0 == "KO" }.first ?? $0.languageCodesISO2A.first ?? "",
-                                    descTxt: "\($0.languageCodesISO2A.count)개 언어")
-                ]
-            }
+            .infoModels
             .bind(to: pagerView.rx.pages(cellIdentifier: String(describing: InfoPagerViewCell.self))) { idx, item, cell in
                 if let cell = cell as? InfoPagerViewCell {
                     cell.titleLabel.text = item.title
