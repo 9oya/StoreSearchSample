@@ -1,4 +1,8 @@
 # StoreSearchSample
+![GitHub issues](https://img.shields.io/github/issues/9oya/StoreSearchSample)
+![GitHub forks](https://img.shields.io/github/forks/9oya/StoreSearchSample)
+![GitHub stars](https://img.shields.io/github/stars/9oya/StoreSearchSample)
+
 The App Store Clone coding project...
 
 ## Using...
